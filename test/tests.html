@@ -1,0 +1,323 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <!-- Step 1: import the element to test -->
+    <link rel="import" href="../birch-artifacts.html">
+  </head>
+  <body>
+
+    <!-- You can use the document as a place to set up your fixtures. -->
+    <test-fixture id="birch-artifacts">
+      <template>
+        <birch-artifacts></birch-artifacts>
+      </template>
+    </test-fixture>
+
+    <script>
+    var dataObj = {};
+      fetch('../demo/artifacts.json')
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(data) {
+        dataObj.artifact = data.artifact;
+      });
+
+      fetch('../demo/album.json')
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(data) {
+        dataObj.album = data.album;
+      });
+
+
+      suite('<birch-artifacts>', function() {
+        var rootEl;
+        var el;
+        var sandbox;
+
+        setup(function() {
+          el = fixture('birch-artifacts');
+        });
+
+        test('Lists/Elements Generated', function(done){
+          el.artifacts = dataObj.artifact;
+
+          flush(function(){
+            rootEl = Polymer.dom(el.root);
+            var paperScroll = rootEl.querySelector('paper-scroll-header-panel');
+            var ironList = paperScroll.querySelector('iron-list');
+            var items = (ironList.$$('#items').children.length > 5) ? ironList.$$('#items').children : ironList.children;
+
+            assert.isAtLeast(items.length, 12);
+            
+            assert.isTrue(Boolean(ironList));
+
+            assert.isTrue(Boolean(paperScroll));
+            done();
+          });
+        });
+
+        test('Album display', function(done){
+          flush(function(){
+            el.album = dataObj.album;
+            rootEl = Polymer.dom(el.root);
+            var paperScroll = rootEl.querySelector('paper-scroll-header-panel');
+            var hideAlbumElement = paperScroll.querySelector('#album-display-container');
+
+            assert.isFalse(hideAlbumElement.hidden);
+
+            el.album = null;
+            assert.isTrue(hideAlbumElement.hidden);
+            done();
+          });
+        });
+
+        test('Multi select with shift', function(done){
+          el.artifacts = dataObj.artifact;
+          el.selectMode = true;
+
+          rootEl = Polymer.dom(el.root);
+          
+          Polymer.dom.flush();
+          var items = rootEl.querySelectorAll('.item');
+          
+          items[0].click();
+          items[5].click();
+
+          var mockDetail = {
+            detail: {
+              sourceEvent: {
+                shiftKey: true
+              }
+            }
+          };
+
+          var mockE = new CustomEvent('new-event', mockDetail)
+          mockE.model = {
+            artifact: {
+              id: 20524333
+            }
+          }
+
+          el._tryMultiSelect(mockE);
+
+          flush(function(){
+
+            assert.isTrue(items[3].hasAttribute("selected"));
+
+            done();
+          });         
+        });
+
+        test('Context Menu', function(done){
+          el.artifacts = dataObj.artifact;
+          el.selectOnContextMenu = true;
+          el.selectMode = true;
+          flush(function(){
+
+            rootEl = Polymer.dom(el.root);
+        
+            var items = rootEl.querySelectorAll('.item');
+            
+            assert.isFalse(items[0].hasAttribute("selected"))
+
+            var mockE = {
+              currentTarget: items[0]
+            } 
+
+            el._handleContextMenu(mockE);
+
+            assert.isTrue(items[0].hasAttribute("selected"));
+            
+            el._handleContextMenu(mockE);
+            
+            assert.isTrue(items[0].hasAttribute("selected"));
+
+            el.deselectAll();
+
+            el.selectOnContextMenu = false;
+            
+            el._handleContextMenu(mockE);
+            assert.isFalse(items[0].hasAttribute("selected"));
+
+            done();
+          });
+
+          
+        });
+
+        test('Handle Drag Begin', function(done){
+          el.artifacts = dataObj.artifact;
+          el.selectMode = true;
+
+          flush(function(){
+            rootEl = Polymer.dom(el.root);
+
+            var items = rootEl.querySelectorAll('.item');
+
+            var spy1 = sinon.spy();
+            var spy2 = sinon.spy();
+
+            var mockE = {
+              dataTransfer: {
+                setData: spy1,
+                setDragImage: spy2
+              },
+              currentTarget: items[0]
+            }
+
+            navigator.userAgent = "Chrome";
+            navigator.__defineGetter__('userAgent', function(){
+                return 'Chrome' // customized user agent
+            });
+
+            el._handleDragStart(mockE);
+            assert.isTrue(items[0].hasAttribute("selected"));
+            assert.isTrue(spy1.calledOnce);
+            assert.isTrue(spy2.calledOnce);     
+
+            spy1.reset();
+            spy2.reset();
+
+            el.selectedItems = [];
+            el._handleDragStart(mockE);
+
+            assert.isTrue(spy1.calledOnce);
+            assert.isTrue(spy2.calledOnce);   
+
+            el.addEventListener("toggleUploadDrag", function(event){
+              assert.isTrue(event.detail.disable);
+              done();
+            });
+            el._handleDragStart(mockE);
+
+          });
+
+        });
+
+        test('Handle Drag End', function(done){
+          el.artifacts = dataObj.artifact;
+          el.selectMode = true;
+
+          flush(function(){
+            rootEl = Polymer.dom(el.root);
+
+            var items = rootEl.querySelectorAll('.item');
+
+            el.addEventListener('toggleUploadDrag', function(event){
+              assert.isFalse(event.detail.disable);
+              done()
+            });
+
+            el._handleDragEnd();
+
+          });
+        });
+
+        test('Handle scroll', function(done){
+          el.artifacts = dataObj.artifact;
+
+          el.addEventListener('artifact-grid-scroll', function(event){
+            assert.equal(event.detail.scrollTarget, 0);
+            done();
+          });
+          el._handleScroll();
+        });
+
+        test('Load cache state', function(done){
+          el.artifacts = dataObj.artifact;
+
+            var spy = sinon.spy(el.$.selector, "scrollToIndex");
+
+            var mockE = {
+              detail: {
+                scrollTarget: "8"
+              }
+            }
+            el._loadCacheState();
+
+            assert.isFalse(spy.calledOnce);
+
+            el._loadCacheState(mockE);
+            flush(function(){
+              assert.isTrue(spy.calledOnce);
+              done();
+            });
+
+        });
+
+        test('Change selectMode', function(){
+
+          assert.isFalse(el.selectMode);
+
+          el._handleSelectOnly(true);
+
+          assert.isTrue(el.selectMode);
+        });
+         
+        test('Change list view', function(done) {
+          var eventFired = false;
+          el.addEventListener('artifact-grid-view-type', function(e) {
+            expect(e.detail.viewType).to.equal('list-view')
+            eventFired = true;
+            done();
+          })
+          assert.isFalse(el.listView);
+          el.listView = true;
+          assert.isTrue(el.listView);
+          setTimeout(function() {
+            assert.isTrue(eventFired)
+            done();
+          },2000)
+        });
+
+        test('Cached view type', function() {
+          var obj = {};
+          obj.detail = {};
+          obj.detail.viewType = 'list-view'
+          assert.isFalse(el.listView)
+          el._loadCacheViewType(obj);
+          assert.isTrue(el.listView);
+        });
+
+        test('Enable selecting', function() {
+          var myEl = Polymer.dom(el.root);
+          var selector = myEl.querySelector('#selector');
+          assert.isFalse(selector.selectionEnabled);
+          el._enableSelecting(false, true);
+          assert.isFalse(selector.selectionEnabled);
+          el._enableSelecting(true, true);
+          assert.isTrue(selector.selectionEnabled);
+        });
+
+        test('Override iron-list items height', function() {
+          el.artifacts = dataObj.artifact;
+          el._overideIronListItemsHeight();
+          var ironList = Polymer.dom(el.root).querySelector('iron-list');
+          var items = Polymer.dom(ironList.root).querySelector('#items');
+          expect(items.style.height).to.equal('10px');
+        });
+
+      });
+
+    </script>
+
+  </body>
+</html>

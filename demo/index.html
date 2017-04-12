@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>birch-artifacts Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../birch-artifacts.html" async>
+  </head>
+  <body unresolved>
+
+    <div>
+      <label for="langPicker">Choose page language: </label>
+      <select id="langPicker">
+        <option selected>en</option>
+        <option>es</option>
+        <option>fr</option>
+        <option>ko</option>
+      </select>
+    </div>
+
+    <div>
+      <button id='getAlbum'>Get Album</button>
+      <button id='clearAlbum'>Clear Album</button>
+      <button id='readOnly'>Toggle readOnly flag</button>
+      <button id='readOnlyAlbum'>Toggle readOnlyAlbum flag</button>
+      <button id='showShareAlbum'>Toggle showShareAlbum flag</button>
+      <button id='listView'>Toggle List View</button>
+      <button id='selectMode'>Toggle Select Mode</button>
+    </div>
+    <div>
+      <birch-artifacts select-only></birch-artifacts>
+    </div>
+    <script>
+      var el = document.querySelector('birch-artifacts');
+
+      var artifactData = {};
+      fetch('./artifacts.json')
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(data) {
+        artifactData = data.artifact
+        el.artifacts = artifactData;
+      });
+      el.listView = false;
+
+      var button1 = document.querySelector('#getAlbum');
+      button1.addEventListener('click', function() {
+        fetch('./album.json')
+        .then(function(res) {
+          return res.json();
+        })
+        .then(function(data) {
+          el.album = data.album;
+        });
+      });
+
+      var button2 = document.querySelector('#clearAlbum');
+      button2.addEventListener('click', function() {
+        el.album = null;
+      });
+
+      var button3 = document.querySelector('#readOnly');
+      button3.addEventListener('click', function() {
+        el.readOnly = !el.readOnly;
+      });
+
+      var button4 = document.querySelector('#readOnlyAlbum');
+      button4.addEventListener('click', function() {
+        el.set('album.editableByCaller', !el.album.editableByCaller)
+      });
+
+      var button5 = document.querySelector('#showShareAlbum');
+      button5.addEventListener('click', function(){
+        el.showShare = !el.showShare;
+      });
+
+      var button6 = document.querySelector('#listView');
+      button6.addEventListener('click', function(){
+        el.listView = !el.listView;
+      });
+
+      var button7 = document.querySelector('#selectMode');
+      button7.addEventListener('click', function(){
+        el.selectMode = !el.selectMode;
+      });
+
+      var langPicker = document.querySelector('#langPicker');
+      langPicker.addEventListener('change', function() {
+        document.querySelector('birch-artifacts').language = langPicker.value;
+      });
+
+    </script>
+  </body>
+</html>

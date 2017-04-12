@@ -1,0 +1,10 @@
+{
+  "go-to-memories": "Ir para Minhas Recordações",
+  "no-album": "Este álbum não existe mais.",
+  "recently_deleted_explanation": "As recordações abaixo vão ser excluídas permanentemente depois de 120 dias. Enquanto estiverem na pasta “Excluídas Recentemente”, elas não poderão ser vistas por outras pessoas, alteradas, nem anexadas à Árvore Familiar.",
+  "recently_deleted_header": "Excluídas Recentemente",
+  "text": "Clique no botão verde, acima, para acrescentar as recordações ou arraste-as e solte-as no álbum.",
+  "text-mobile": "Clique no botão verde para acrescentar as recordações ou selecione recordações de um outro álbum.",
+  "title": "Comece a Coletar Recordações",
+  "unauth-text": "Não há nenhuma recordação deste tipo."
+}

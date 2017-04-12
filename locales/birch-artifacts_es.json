@@ -1,0 +1,10 @@
+{
+  "go-to-memories": "Ir a Mis recuerdos",
+  "no-album": "Este álbum ya no existe.",
+  "recently_deleted_explanation": "Después de 120 días, los siguientes recuerdos serán eliminados de manera permanente. Mientras estén en Eliminado recientemente, no podrán ser vistos por otras personas, ni editados, ni se podrán adjuntar al Árbol Familiar.  ",
+  "recently_deleted_header": "Eliminado recientemente",
+  "text": "Haga clic en el signo más de color verde para agregar recuerdos a este álbum o arrastre y suelte los recuerdos en el álbum.",
+  "text-mobile": "Haz clic en el signo más de color verde para agregar recuerdos a este álbum o selecciona los recuerdos de otro álbum.",
+  "title": "Empezar a recopilar recuerdos",
+  "unauth-text": "No hay recuerdos de este tipo."
+}

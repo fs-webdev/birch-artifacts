@@ -1,0 +1,10 @@
+{
+  "title":"Start Collecting Memories",
+  "text":"Click on the green plus to add memories to this album, or drag and drop memories into the album.",
+  "text-mobile":"Click on the green plus to add memories to this album, or select memories from a different album.",
+  "unauth-text":"There are no memories of this type.",
+  "no-album":"This album no longer exists.",
+  "go-to-memories": "Go to My Memories",
+  "recently_deleted_header": "Recently Deleted",
+  "recently_deleted_explanation": "The memories below will be permanently deleted after 120 days. While in Recently Deleted, they cannot be viewed by others, edited, nor attached to Family Tree."
+}
