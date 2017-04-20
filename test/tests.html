@@ -30,21 +30,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script>
     var dataObj = {};
-      fetch('../demo/artifacts.json')
-      .then(function(res) {
-        return res.json();
-      })
-      .then(function(data) {
-        dataObj.artifact = data.artifact;
-      });
+      
+      // Get sample artifact data
+      var artifactReq = new XMLHttpRequest();
+      artifactReq.open('GET', '../demo/artifacts.json');
+      artifactReq.onload = function() {
+        dataObj.artifact = JSON.parse(artifactReq.response).artifact;
+      }
+      artifactReq.send();
 
-      fetch('../demo/album.json')
-      .then(function(res) {
-        return res.json();
-      })
-      .then(function(data) {
-        dataObj.album = data.album;
-      });
+      // Get sample album data
+      var albumReq = new XMLHttpRequest();
+      albumReq.open('GET', '../demo/album.json');
+      albumReq.onload = function() {
+        dataObj.album = JSON.parse(albumReq.response).artifact;
+      }
+      albumReq.send();
 
 
       suite('<birch-artifacts>', function() {
@@ -56,48 +57,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           el = fixture('birch-artifacts');
         });
 
-        test('Lists/Elements Generated', function(done){
+        test('Lists/Elements Generated', function(){
+          el.listView = false;
           el.artifacts = dataObj.artifact;
 
           flush(function(){
             rootEl = Polymer.dom(el.root);
-            var paperScroll = rootEl.querySelector('paper-scroll-header-panel');
-            var ironList = paperScroll.querySelector('iron-list');
-            var items = (ironList.$$('#items').children.length > 5) ? ironList.$$('#items').children : ironList.children;
-
-            assert.isAtLeast(items.length, 12);
-            
+            var ironList = rootEl.querySelector('iron-list');
+            assert.isAtLeast(ironList.items.length, 12);
             assert.isTrue(Boolean(ironList));
-
-            assert.isTrue(Boolean(paperScroll));
-            done();
           });
         });
 
-        test('Album display', function(done){
+        test('Album display', function(){
+          el.album = dataObj.album;
           flush(function(){
-            el.album = dataObj.album;
             rootEl = Polymer.dom(el.root);
             var paperScroll = rootEl.querySelector('paper-scroll-header-panel');
             var hideAlbumElement = paperScroll.querySelector('#album-display-container');
-
             assert.isFalse(hideAlbumElement.hidden);
-
             el.album = null;
             assert.isTrue(hideAlbumElement.hidden);
-            done();
           });
         });
 
-        test('Multi select with shift', function(done){
+        test('Multi select with shift', function(){
+          el.listView = false;
           el.artifacts = dataObj.artifact;
           el.selectMode = true;
 
-          rootEl = Polymer.dom(el.root);
-          
           Polymer.dom.flush();
+
+          rootEl = Polymer.dom(el.root);
           var items = rootEl.querySelectorAll('.item');
-          
           items[0].click();
           items[5].click();
 
@@ -117,17 +109,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           el._tryMultiSelect(mockE);
-
+          
           flush(function(){
-
             assert.isTrue(items[3].hasAttribute("selected"));
-
-            done();
           });         
         });
 
-        test('Context Menu', function(done){
+        test('Context Menu', function(){
           el.artifacts = dataObj.artifact;
+          el.listView = false;
           el.selectOnContextMenu = true;
           el.selectMode = true;
           flush(function(){
@@ -156,14 +146,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             
             el._handleContextMenu(mockE);
             assert.isFalse(items[0].hasAttribute("selected"));
-
-            done();
           });
-
-          
         });
 
         test('Handle Drag Begin', function(done){
+          el.listView = false
           el.artifacts = dataObj.artifact;
           el.selectMode = true;
 
@@ -188,26 +175,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 return 'Chrome' // customized user agent
             });
 
-            el._handleDragStart(mockE);
-            assert.isTrue(items[0].hasAttribute("selected"));
-            assert.isTrue(spy1.calledOnce);
-            assert.isTrue(spy2.calledOnce);     
-
-            spy1.reset();
-            spy2.reset();
-
-            el.selectedItems = [];
-            el._handleDragStart(mockE);
-
-            assert.isTrue(spy1.calledOnce);
-            assert.isTrue(spy2.calledOnce);   
-
             el.addEventListener("toggleUploadDrag", function(event){
               assert.isTrue(event.detail.disable);
               done();
             });
-            el._handleDragStart(mockE);
 
+            el._handleDragStart(mockE);
+            assert.isTrue(items[0].hasAttribute("selected"));
+            assert.isTrue(spy1.calledOnce);
+            assert.isTrue(spy2.calledOnce);
           });
 
         });
@@ -232,6 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('Handle scroll', function(done){
+          el.listView = false;
           el.artifacts = dataObj.artifact;
 
           el.addEventListener('artifact-grid-scroll', function(event){
@@ -241,80 +218,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           el._handleScroll();
         });
 
-        test('Load cache state', function(done){
+        test('Load cache state', function(){
+          el.listView = false;
           el.artifacts = dataObj.artifact;
-
-            var spy = sinon.spy(el.$.selector, "scrollToIndex");
-
+          Polymer.dom.flush();
+            var spy = sinon.spy(Polymer.dom(el.root).querySelector('#grid-selector'), "scrollToIndex");
             var mockE = {
               detail: {
                 scrollTarget: "8"
               }
             }
             el._loadCacheState();
-
             assert.isFalse(spy.calledOnce);
 
             el._loadCacheState(mockE);
             flush(function(){
               assert.isTrue(spy.calledOnce);
-              done();
             });
-
         });
 
         test('Change selectMode', function(){
-
           assert.isFalse(el.selectMode);
-
           el._handleSelectOnly(true);
-
           assert.isTrue(el.selectMode);
         });
          
-        test('Change list view', function(done) {
+        test('Change list view', function() {
           var eventFired = false;
-          el.addEventListener('artifact-grid-view-type', function(e) {
-            expect(e.detail.viewType).to.equal('list-view')
-            eventFired = true;
-            done();
-          })
+          el.listView = false;
+          var spy = sinon.spy(el, "_handleViewChange");
           assert.isFalse(el.listView);
           el.listView = true;
-          assert.isTrue(el.listView);
-          setTimeout(function() {
-            assert.isTrue(eventFired)
-            done();
-          },2000)
+          assert.isTrue(spy.calledOnce);
         });
-
-        test('Cached view type', function() {
-          var obj = {};
-          obj.detail = {};
-          obj.detail.viewType = 'list-view'
-          assert.isFalse(el.listView)
-          el._loadCacheViewType(obj);
-          assert.isTrue(el.listView);
-        });
-
-        test('Enable selecting', function() {
-          var myEl = Polymer.dom(el.root);
-          var selector = myEl.querySelector('#selector');
-          assert.isFalse(selector.selectionEnabled);
-          el._enableSelecting(false, true);
-          assert.isFalse(selector.selectionEnabled);
-          el._enableSelecting(true, true);
-          assert.isTrue(selector.selectionEnabled);
-        });
-
-        test('Override iron-list items height', function() {
-          el.artifacts = dataObj.artifact;
-          el._overideIronListItemsHeight();
-          var ironList = Polymer.dom(el.root).querySelector('iron-list');
-          var items = Polymer.dom(ironList.root).querySelector('#items');
-          expect(items.style.height).to.equal('10px');
-        });
-
       });
 
     </script>
