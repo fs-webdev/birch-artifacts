@@ -39,7 +39,6 @@ Example:
   <template>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
     <birch-popover viewport-positioning id="popover"></birch-popover>
-    <!-- <birch-popover viewport-positioning id="restrictedInfo"></birch-popover> -->
     <paper-scroll-header-panel id='header' class$='{{_viewTypeClass(listView)}}' condenses condensed-header-height='1'>
       <div class="p-header">
         <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView, artifacts)]]'></i>
@@ -47,6 +46,7 @@ Example:
           <birch-album-display data-test='album-info' read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
             show-share='[[showShare]]'
             album='[[album]]'
+            show-owner='[[showAlbumOwner]]'
             on-edit-album='_handleDataChange'></birch-album-display>
           <div id="empty-album-notification" class='layout vertical center center-justified' hidden='[[artifacts.length]]'>
             <i hidden='{{_hideIfEitherArgTrue(mobile, readOnly)}}' class="empty-album-image"></i>
@@ -279,6 +279,10 @@ Example:
        * Boolean for showing the share option when readOnly mode is active
       */
       showShare: {
+        type: Boolean,
+        value: false
+      },
+      showAlbumOwner: {
         type: Boolean,
         value: false
       },
@@ -709,42 +713,7 @@ Example:
     },
     _handleListItemMouseout: function(e) {
       this.$.popover.close();
-    },
-    // _handleRestrictedInfo: function(e) {
-    //   var viewType = localStorage.getItem('gallery-view-type-' + this.cisId) || 'grid-view';
-    //   var left = false;
-    //   // Create nodes
-    //   var info = document.createElement('div');
-    //   var email = document.createElement('div');
-    //   var content = document.createElement('div');
-    //   // Content
-    //   info.innerHTML = e.detail.translations.restrictedInfo;
-    //   email.innerHTML = e.detail.translations.checkEmail;
-    //   // Styling
-    //   email.style.marginTop = '20px';
-
-    //   // Positioning
-    //   if (window.innerWidth - e.detail.target.getBoundingClientRect().right < 150) left = true;
-    //   if (e.detail.target.getBoundingClientRect().top > 300) {
-    //     this.$.restrictedInfo.dialogPosition = 'top';
-    //   } else {
-    //     this.$.restrictedInfo.dialogPosition = 'bottom';
-    //   }
-    //   if (viewType === 'list-view' || left) {
-    //     this.$.restrictedInfo.alignment = 'right';
-    //     this.$.restrictedInfo.alignmentBuffer = 8;
-    //   } else {
-    //     this.$.restrictedInfo.alignment = 'center';
-    //     this.$.restrictedInfo.alignmentBuffer = 0;
-    //   }
-
-    //   // set Content
-    //   content.appendChild(info);
-    //   content.appendChild(email);
-    //   this.$.restrictedInfo.setContent(content, true);
-    //   this.$.restrictedInfo.positionTarget = e.detail.target;
-    //   this.$.restrictedInfo.open();
-    // }
+    }
   });
 })();
 
