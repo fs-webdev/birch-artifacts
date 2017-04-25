@@ -43,8 +43,10 @@ Example:
       <div class="p-header">
         <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView, artifacts)]]'></i>
         <div id="album-display-container" hidden='[[!album.id]]'>
-          <birch-album-display data-test='album-info' read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
-            show-share='[[showShare]]'
+          <birch-album-display data-test='album-info' 
+            logged-out='[[readOnly]]'
+            read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
+            show-share
             album='[[album]]'
             show-owner='[[showAlbumOwner]]'
             on-edit-album='_handleDataChange'></birch-album-display>
@@ -55,7 +57,7 @@ Example:
                 [[i18n('title')]]
               </h5>
               <h5 hidden='[[!readOnly]]'>
-                [[i18n('unauth_text')]]
+                [[i18n('unauth-text')]]
               </h5>
               <p hidden='[[_hideIfEitherArgTrue(mobile, readOnly)]]'>
                 [[i18n('text')]]
@@ -272,13 +274,6 @@ Example:
       * info dialog
       */
       showRestrictedInfo: {
-        type: Boolean,
-        value: false
-      },
-      /*
-       * Boolean for showing the share option when readOnly mode is active
-      */
-      showShare: {
         type: Boolean,
         value: false
       },
