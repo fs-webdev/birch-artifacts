@@ -367,6 +367,7 @@ Example:
     },
     _handleContextMenu: function(e) {
       if (!this.selectOnContextMenu) return;
+      e.preventDefault();
       var target = e.currentTarget;
       var parent = e.currentTarget.parentNode;
       var gParent = parent.parentNode;
