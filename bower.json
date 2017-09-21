@@ -1,5 +1,5 @@
 {
-  "name": "birch-artifacts",
+  "name": "fs-artifacts",
   "version": "1.1.3",
   "authors": [
     "Josh Crowther <jshcrowthe@gmail.com>",
@@ -13,8 +13,8 @@
     "polymer",
     "seed"
   ],
-  "main": "birch-artifacts.html",
-  "homepage": "https://github.com/FamilySearchElements/birch-artifacts/",
+  "main": "fs-artifacts.html",
+  "homepage": "https://github.com/fs-webdev/fs-artifacts/",
   "ignore": [
     "/.*",
     "/test/"

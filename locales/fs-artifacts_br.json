@@ -1,0 +1,10 @@
+{
+  "go-to-memories": "go-to-memories|fs-artifacts_en.json",
+  "no-album": "no-album|fs-artifacts_en.json",
+  "recently_deleted_explanation": "recently_deleted_explanation|fs-artifacts_en.json",
+  "recently_deleted_header": "recently_deleted_header|fs-artifacts_en.json",
+  "text": "text|fs-artifacts_en.json",
+  "text-mobile": "text-mobile|fs-artifacts_en.json",
+  "title": "title|fs-artifacts_en.json",
+  "unauth-text": "unauth-text|fs-artifacts_en.json"
+}

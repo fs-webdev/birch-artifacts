@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/FamilySearchElements/birch-artifacts.svg?branch=master)](https://travis-ci.org/FamilySearchElements/birch-artifacts)
-# birch-artifacts
+[![Build Status](https://travis-ci.org/fs-webdev/fs-artifacts.svg?branch=master)](https://travis-ci.org/fs-webdev/fs-artifacts)
+# fs-artifacts
 
 An element providing a starting point for your own reusable Polymer elements.
 
@@ -29,13 +29,13 @@ And you can run it via:
     polyserve
 
 Once running, you can preview your element at
-`http://localhost:8080/components/birch-artifacts/`, where `birch-artifacts` is the name of the directory containing it.
+`http://localhost:8080/components/fs-artifacts/`, where `fs-artifacts` is the name of the directory containing it.
 
 
 ## Testing Your Element
 
 Simply navigate to the `/test` directory of your element to run its tests. If
-you are using Polyserve: `http://localhost:8080/components/birch-artifacts/test/`
+you are using Polyserve: `http://localhost:8080/components/fs-artifacts/test/`
 
 ### web-component-tester
 

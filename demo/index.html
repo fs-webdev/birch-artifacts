@@ -12,9 +12,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>birch-artifacts Demo</title>
+    <title>fs-artifacts Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../birch-artifacts.html" async>
+    <link rel="import" href="../fs-artifacts.html" async>
   </head>
   <body unresolved>
 
@@ -38,10 +38,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <button id='selectMode'>Toggle Select Mode</button>
     </div>
     <div>
-      <birch-artifacts select-only></birch-artifacts>
+      <fs-artifacts select-only></fs-artifacts>
     </div>
     <script>
-      var el = document.querySelector('birch-artifacts');
+      var el = document.querySelector('fs-artifacts');
 
       var artifactData = {};
       fetch('./artifacts.json')
@@ -97,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       var langPicker = document.querySelector('#langPicker');
       langPicker.addEventListener('change', function() {
-        document.querySelector('birch-artifacts').language = langPicker.value;
+        document.querySelector('fs-artifacts').language = langPicker.value;
       });
 
     </script>
