@@ -17,14 +17,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../birch-artifacts.html">
+    <link rel="import" href="../fs-artifacts.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
-    <test-fixture id="birch-artifacts">
+    <test-fixture id="fs-artifacts">
       <template>
-        <birch-artifacts></birch-artifacts>
+        <fs-artifacts></fs-artifacts>
       </template>
     </test-fixture>
 
@@ -48,13 +48,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       albumReq.send();
 
 
-      suite('<birch-artifacts>', function() {
+      suite('<fs-artifacts>', function() {
         var rootEl;
         var el;
         var sandbox;
 
         setup(function() {
-          el = fixture('birch-artifacts');
+          el = fixture('fs-artifacts');
         });
 
         test('Lists/Elements Generated', function(){
