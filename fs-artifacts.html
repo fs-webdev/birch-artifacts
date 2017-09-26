@@ -13,11 +13,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../paper-scroll-header-panel/paper-scroll-header-panel.html">
 <link rel="import" href="../iron-list/iron-list.html">
 <link rel="import" href="../birch-popover/birch-popover.html">
-<link rel="import" href="../birch-album-display/birch-album-display.html">
+<link rel="import" href="../fs-album-display/fs-album-display.html">
 <link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
-<link rel="import" href="../birch-artifact-list-item/birch-artifact-list-item-preview.html">
-<link rel="import" href="../birch-artifact-grid-item/birch-artifact-grid-item-preview.html">
+<link rel="import" href="../fs-artifact-list-item/fs-artifact-list-item-preview.html">
+<link rel="import" href="../fs-artifact-grid-item/fs-artifact-grid-item-preview.html">
 <link rel="import" href="../fs-styles/fs-styles.html">
 
 <!-- TODO: REFACTOR THESE THREE COMPONENTS -->
@@ -43,13 +43,13 @@ Example:
       <div class="p-header">
         <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView, artifacts)]]'></i>
         <div id="album-display-container" hidden='[[!album.id]]'>
-          <birch-album-display data-test='album-info' 
+          <fs-album-display data-test='album-info'
             logged-out='[[readOnly]]'
             read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
             show-share
             album='[[album]]'
             show-owner='[[showAlbumOwner]]'
-            on-edit-album='_handleDataChange'></birch-album-display>
+            on-edit-album='_handleDataChange'></fs-album-display>
           <div id="empty-album-notification" class='layout vertical center center-justified' hidden='[[artifacts.length]]'>
             <i hidden='{{_hideIfEitherArgTrue(mobile, readOnly)}}' class="empty-album-image"></i>
             <div class='text-wrap'>
@@ -94,7 +94,7 @@ Example:
               on-dragend='_handleDragEnd'
               on-tap='_tryMultiSelect'>
               <template is="dom-if" if="[[artifact.id]]">
-                <birch-artifact-grid-item draggable="{{!readOnly}}"
+                <fs-artifact-grid-item draggable="{{!readOnly}}"
                   data-test='grid-item'
                   read-only='[[readOnly]]'
                   data='[[artifact]]'
@@ -105,16 +105,16 @@ Example:
                   show-restricted-info='[[showRestrictedInfo]]'
                   owner='[[owner]]'
                   alert-input-active='{{alertInputActive}}'
-                  inline-adding-enabled='[[inlineAddingEnabled]]'></birch-artifact-grid-item>
+                  inline-adding-enabled='[[inlineAddingEnabled]]'></fs-artifact-grid-item>
                   <template is="dom-if" if="[[!disableSelect]]">
                     <i class="grid-select check-icon"></i>
                   </template>
               </template>
               <template is="dom-if" if="[[!artifact.id]]">
-                <birch-artifact-grid-item-preview
+                <fs-artifact-grid-item-preview
                   data-test='grid-item-preview'
                   data='{{artifact}}'>
-                </birch-artifact-grid-item-preview>
+                </fs-artifact-grid-item-preview>
               </template>
             </div>
           </template>
@@ -139,7 +139,7 @@ Example:
               on-dragend='_handleDragEnd'
               on-tap='_tryMultiSelect'>
               <template is="dom-if" if="[[artifact.id]]">
-                <birch-artifact-list-item draggable="{{!readOnly}}"
+                <fs-artifact-list-item draggable="{{!readOnly}}"
                   data-test='list-item'
                   read-only='[[readOnly]]'
                   data='[[artifact]]'
@@ -151,13 +151,13 @@ Example:
                   select-mode='{{selectMode}}'
                   owner='[[owner]]'
                   alert-input-active='{{alertInputActive}}'
-                  inline-adding-enabled='[[inlineAddingEnabled]]'></birch-artifact-list-item>
+                  inline-adding-enabled='[[inlineAddingEnabled]]'></fs-artifact-list-item>
                 <template is="dom-if" if="[[!disableSelect]]">
                   <i class="list-select check-icon"></i>
                 </template>
               </template>
               <template is="dom-if" if="[[!artifact.id]]">
-                <birch-artifact-list-item-preview data-test='grid-item-preview' data='{{artifact}}'></birch-artifact-list-item-preview>
+                <fs-artifact-list-item-preview data-test='grid-item-preview' data='{{artifact}}'></fs-artifact-list-item-preview>
               </template>
             </div>
           </template>
