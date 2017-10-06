@@ -635,10 +635,8 @@ Example:
       /* TL;DR this basically a hack to fix a selection problem when loading the
       component while 'multiple' is true
 
-      Despite many many attepts to implement this in a sane way, the horrible
-      code below is necessary to allow multiselection to occur... if not here,
-      the checkmarks will not uncheck, and you will get duplicates in the
-      'selectedItems' array for already selected items.
+      If not here, the checkmarks will not uncheck, and you will get duplicates
+      in the 'selectedItems' array for already selected items.
       -- Start of terrible code -- */
       if (this.listView != undefined) selector.selectIndex(0);
       this.deselectAll();
