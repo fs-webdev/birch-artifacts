@@ -80,7 +80,7 @@ Example:
           grid
           isSelectMode$='[[selectMode]]'
           items='[[artifacts]]'
-          multi-selection
+          multi-selection='[[multiple]]'
           selection-enabled
           scroll-target='[[_boundScroller]]'
           selected-items='{{selectedItems}}'
@@ -107,7 +107,7 @@ Example:
                   alert-input-active='{{alertInputActive}}'
                   inline-adding-enabled='[[inlineAddingEnabled]]'></fs-artifact-grid-item>
                   <template is="dom-if" if="[[!disableSelect]]">
-                    <i class="grid-select check-icon"></i>
+                    <i class$="grid-select {{_getBtnIconClass(multiple)}}"></i>
                   </template>
               </template>
               <template is="dom-if" if="[[!artifact.id]]">
@@ -125,7 +125,7 @@ Example:
           as='artifact'
           isSelectMode$='[[selectMode]]'
           items='[[artifacts]]'
-          multi-selection
+          multi-selection='[[multiple]]'
           selection-enabled
           scroll-target='[[_boundScroller]]'
           selected-items='{{selectedItems}}'
@@ -153,7 +153,7 @@ Example:
                   alert-input-active='{{alertInputActive}}'
                   inline-adding-enabled='[[inlineAddingEnabled]]'></fs-artifact-list-item>
                 <template is="dom-if" if="[[!disableSelect]]">
-                  <i class="list-select check-icon"></i>
+                  <i class$="list-select {{_getBtnIconClass(multiple)}}"></i>
                 </template>
               </template>
               <template is="dom-if" if="[[!artifact.id]]">
@@ -249,6 +249,13 @@ Example:
         value: false,
         notify: true
       },
+      /**
+       * Boolean for allowing multiple artifacts to be selected.
+       */
+      multiple: {
+        type: Boolean,
+        value: false
+      },
       selectOnContextMenu: {
         type: Boolean,
         value: false,
@@ -302,10 +309,12 @@ Example:
       },
       listString: {
         type: String,
+        value: 'grid',
         computed: '_computeListString(listView)'
       },
       listView: {
         type: Boolean,
+        value: false,
         notify: true,
         observer: '_handleViewChange'
       },
@@ -361,6 +370,10 @@ Example:
     _loadCaches: function() {
       this._loadCacheViewType();
       this._loadCacheState(this.view);
+    },
+    _getBtnIconClass: function(multiple) {
+      if (multiple) return "check-icon";
+      else return "radio-icon";
     },
     _computeListString: function(listView) {
       return listView ? 'list' : 'grid';
@@ -426,7 +439,7 @@ Example:
     },
     _handleDataChange: function() {
       this.debounce('birch-artifact-grid-measure-header', function() {
-        this.$.header.measureHeaderHeight();
+        if (this.$.header) this.$.header.measureHeaderHeight();
       }.bind(this));
     },
     _handleDragStart: function(e) {
@@ -619,6 +632,15 @@ Example:
     },
     _handleArtifactsChange: function() {
       var selector = this.$$('#' + this.listString + '-selector');
+      /* TL;DR this basically a hack to fix a selection problem when loading the
+      component while 'multiple' is true
+
+      If not here, the checkmarks will not uncheck, and you will get duplicates
+      in the 'selectedItems' array for already selected items.
+      -- Start of terrible code -- */
+      if (this.listView != undefined) selector.selectIndex(0);
+      this.deselectAll();
+      // -- End of terrible code --
       if (Boolean(selector)) {
         this.listen(selector, 'dom-change', '_domChangeListener');
       }
