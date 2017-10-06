@@ -14,6 +14,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>fs-artifacts Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script type="text/javascript">
+      FS = {};
+    </script>
     <link rel="import" href="../fs-artifacts.html" async>
   </head>
   <body unresolved>
@@ -38,7 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <button id='selectMode'>Toggle Select Mode</button>
     </div>
     <div>
-      <fs-artifacts select-only></fs-artifacts>
+      <fs-artifacts select-only multiple></fs-artifacts>
     </div>
     <script>
       var el = document.querySelector('fs-artifacts');
