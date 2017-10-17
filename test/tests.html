@@ -81,6 +81,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
+        test('Multiple icon type', function(){
+          el.listString = 'grid';
+          el.multiple = false;
+          var result = el._getBtnIconClass(el.multiple);
+          expect(result).to.equal('radio-icon');
+
+          el.multiple = true;
+          result = el._getBtnIconClass(el.multiple);
+          expect(result).to.equal('check-icon');
+        });
+
         test('Multi select with shift', function(){
           el.listView = false;
           el.artifacts = dataObj.artifact;
