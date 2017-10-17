@@ -638,7 +638,7 @@ Example:
       If not here, the checkmarks will not uncheck, and you will get duplicates
       in the 'selectedItems' array for already selected items.
       -- Start of terrible code -- */
-      if (this.listView != undefined) selector.selectIndex(0);
+      if (selector && this.listView != undefined) selector.selectIndex(0);
       this.deselectAll();
       // -- End of terrible code --
       if (Boolean(selector)) {
