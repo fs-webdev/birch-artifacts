@@ -36,6 +36,7 @@ Example:
 <dom-module id="fs-artifacts">
   <style include='fs-styles'></style>
   <link rel="import" type="css" href="fs-artifacts.css">
+  <link rel="import" type="css" href="../fs-styles/dist/familysearch-styles.min.css">
   <template>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
     <birch-popover viewport-positioning id="popover"></birch-popover>
@@ -71,6 +72,12 @@ Example:
         <div id="recently-deleted-header" hidden="[[!_same(view, 'recently-deleted')]]">
           <h4>[[i18n('recently_deleted_header')]]</h4>
           <small>[[i18n('recently_deleted_explanation')]]</small>
+        </div>
+        <div id="missing-album-header-wrapper">
+          <div id="missing-album-header" hidden="[[!missingAlbum]]">
+            <h5>[[i18n('missing_album')]]</h5>
+            <button class="fs-button fs-button--recommended" on-click="_handleGoToMemories">[[i18n('go-to-memories')]]</button>
+          </div>
         </div>
       </div>
 
@@ -325,6 +332,10 @@ Example:
       readOnly: {
         type: Boolean,
         value: false
+      },
+      missingAlbum: {
+        type: Boolean,
+        value: false
       }
     },
     observers: [
@@ -348,6 +359,8 @@ Example:
 
       // // Listens for event to open the restricted information dialog
       // this.listen(document, 'open-restricted-info', '_handleRestrictedInfo');
+
+      this.listen(document, 'missing-album-error', '_handleMissingAlbumError');
 
       var galleryData = document.querySelector('gallery-data');
       if (!this._cachesCalled) {
@@ -438,6 +451,7 @@ Example:
       }.bind(this));
     },
     _handleDataChange: function() {
+      this.missingAlbum = false;
       this.debounce('birch-artifact-grid-measure-header', function() {
         if (this.$.header) this.$.header.measureHeaderHeight();
       }.bind(this));
@@ -731,6 +745,9 @@ Example:
     },
     _handleListItemMouseout: function(e) {
       this.$.popover.close();
+    },
+    _handleMissingAlbumError: function(e) {
+      this.missingAlbum = true;
     }
   });
 })();

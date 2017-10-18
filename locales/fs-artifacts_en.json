@@ -6,5 +6,6 @@
   "no-album":"This album no longer exists.",
   "go-to-memories": "Go to My Memories",
   "recently_deleted_header": "Recently Deleted",
-  "recently_deleted_explanation": "The memories below will be permanently deleted after 120 days. While in Recently Deleted, they cannot be viewed by others, edited, nor attached to Family Tree."
+  "recently_deleted_explanation": "The memories below will be permanently deleted after 120 days. While in Recently Deleted, they cannot be viewed by others, edited, nor attached to Family Tree.",
+  "missing_album": "This album no longer exists."
 }
