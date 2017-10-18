@@ -335,6 +335,7 @@ Example:
       var self = this;
       this.listen(document, 'gallery-deselect-all', 'deselectAll');
       this.listen(this._boundScroller, 'scroll', '_handleScroll');
+      this.listen(document, 'update-artifacts-list', 'updateList');
       // Handle multiple attempts to change the global variable 'alertInputActiveChange'.
       // If user clicks from one input to another, the second input's alertInputActiveChange = true is
       // overwritten by the first input's alertInputActiveChange = false
@@ -363,6 +364,7 @@ Example:
       this.unlisten(document, 'list-item-hover', '_handleListItemHover');
       this.unlisten(document, 'list-item-mouseout', '_handleListItemMouseout');
       // this.unlisten(document, 'open-restricted-info', '_handleRestrictedInfo');
+      this.unlisten(document, 'update-artifacts-list', 'updateList');
     },
     _same: function(a, b) {
       return a === b;
@@ -731,6 +733,15 @@ Example:
     },
     _handleListItemMouseout: function(e) {
       this.$.popover.close();
+    },
+    updateList: function() {
+      var listSelector = this.$$('#list-selector');
+      var gridSelector = this.$$('#grid-selector');
+      if (this.listView && listSelector) {
+        listSelector._update();
+      } else if (gridSelector) {
+        gridSelector._update();
+      }
     }
   });
 })();
