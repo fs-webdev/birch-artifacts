@@ -264,7 +264,10 @@ birch-artifact-grid-item:hover + .radio-icon {
 #missing-album-header-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  height: min-content;
+  margin: auto;
 }
 
 #missing-album-header {
@@ -273,6 +276,5 @@ birch-artifact-grid-item:hover + .radio-icon {
 
 #missing-album-header h5{
   margin-bottom: 20px;
-  text-transform: uppercase;
   color: #666662;
 }
