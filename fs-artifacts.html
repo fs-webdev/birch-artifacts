@@ -364,10 +364,9 @@ Example:
       this.listen(document, 'missing-album-error', '_handleMissingAlbumError');
 
       var galleryData = document.querySelector('gallery-data');
+      var galleryApp = document.querySelector('gallery-app');
       if (!this._cachesCalled) {
-        if (!galleryData || !galleryData.dataLoaded) {
-          this.listen(document, 'gallery-data-received', '_loadCaches');
-        } else {
+        if(galleryApp || galleryData){
           this._loadCaches();
         }
         this._cachesCalled = true;
