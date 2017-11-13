@@ -414,14 +414,15 @@ Example:
     _loadCacheState: function(view) {
       var cache = JSON.parse(sessionStorage.getItem('gallery-scroll-target-' + this.owner));
       if (cache && cache[view] && parseInt(cache[view])) {
-        (function(target) {
-          if (!target) return;
-          Polymer.dom.flush();
-          this.addEventListener('dom-loaded', function(){
+        var target = parseInt(cache[view]);
+        if (!target) return;
+        Polymer.dom.flush();
+        this.addEventListener('dom-loaded', function(){
+          this.async(function(){
             var selector = Polymer.dom(this.root).querySelector('#' + this.listString + '-selector');
             if (selector) selector.scrollToIndex(target);
-          });
-        }.bind(this))(parseInt(cache[view]))
+          }, 2000);
+        });
       }
     },
     _loadCacheViewType: function() {
