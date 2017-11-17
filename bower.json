@@ -24,24 +24,18 @@
     "layout": "fs-webdev/layout#1.0.0",
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
     "paper-scroll-header-panel": "PolymerElements/paper-scroll-header-panel#^2.0.0",
-    "iron-list": "PolymerElements/iron-list#1.x",
-    "iron-media-query": "PolymerElements/iron-media-query#^1.0.0",
-    "fs-artifact-grid-item": "fs-webdev/fs-artifact-grid-item#3.x",
-    "fs-artifact-list-item": "fs-webdev/fs-artifact-list-item#3.x",
-    "fs-album-display": "fs-webdev/fs-album-display#3.x",
+    "iron-list": "PolymerElements/iron-list#2.x",
+    "iron-media-query": "PolymerElements/iron-media-query#^2.0.0",
+    "fs-artifact-grid-item": "fs-webdev/fs-artifact-grid-item#4.x",
+    "fs-artifact-list-item": "fs-webdev/fs-artifact-list-item#4.x",
+    "fs-album-display": "fs-webdev/fs-album-display#4.x",
     "oak-i18n-behavior": "fs-webdev/oak-i18n-behavior#1.x",
     "fs-button": "jshcrowthe/fs-button",
-    "fs-styles": "fs-webdev/fs-styles#2.x",
-    "birch-popover": "FamilySearchElements/birch-popover#1.x"
+    "fs-styles": "fs-webdev/fs-styles#3.x",
+    "birch-popover": "fs-webdev/birch-popover#1.x"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
-  },
-  "resolutions": {
-    "polymer": "^1.3.1",
-    "iron-ajax": "~1.1.0",
-    "fs-styles": "2.x",
-    "mocha": "^3.1.2"
   }
 }
