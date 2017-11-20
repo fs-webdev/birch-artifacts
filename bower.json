@@ -31,7 +31,7 @@
     "oak-i18n-behavior": "fs-webdev/oak-i18n-behavior#1.x",
     "fs-button": "jshcrowthe/fs-button",
     "fs-styles": "fs-webdev/fs-styles#3.x",
-    "birch-popover": "fs-webdev/birch-popover#hybridize"
+    "birch-popover": "fs-webdev/birch-popover#2.x"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
