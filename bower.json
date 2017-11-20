@@ -29,7 +29,6 @@
     "fs-artifact-list-item": "fs-webdev/fs-artifact-list-item#4.x",
     "fs-album-display": "fs-webdev/fs-album-display#4.x",
     "oak-i18n-behavior": "fs-webdev/oak-i18n-behavior#1.x",
-    "fs-button": "jshcrowthe/fs-button",
     "fs-styles": "fs-webdev/fs-styles#3.x",
     "birch-popover": "fs-webdev/birch-popover#2.x"
   },
