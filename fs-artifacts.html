@@ -643,12 +643,6 @@ Example:
       // overwritten by the first input's alertInputActiveChange = false
       this.listen(this, 'alert-input-active-changed', '_handleAlertInputActiveChange')
 
-      // Listens to the list-item preview hover. Handler populates and positions birch-popover.
-      this.listen(document, 'list-item-hover', '_handleListItemHover');
-
-      // List item preview mouseout closes birch-popover.
-      this.listen(document, 'list-item-mouseout', '_handleListItemMouseout');
-
       // // Listens for event to open the restricted information dialog
       // this.listen(document, 'open-restricted-info', '_handleRestrictedInfo');
 
@@ -663,7 +657,16 @@ Example:
         this._cachesCalled = true;
       }
     },
+    attached: function() {
+      // Listens to the list-item preview hover. Handler populates and positions birch-popover.
+      this.listen(document, 'list-item-hover', '_handleListItemHover');
+
+      // List item preview mouseout closes birch-popover.
+      this.listen(document, 'list-item-mouseout', '_handleListItemMouseout');
+    },
     detached: function(){
+      this.unlisten(document, 'list-item-hover', '_handleListItemHover');
+      this.unlisten(document, 'list-item-mouseout', '_handleListItemMouseout');
       // this.unlisten(document, 'open-restricted-info', '_handleRestrictedInfo');
       this.unlisten(document, 'update-artifacts-list', 'updateList');
     },
