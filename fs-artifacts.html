@@ -329,6 +329,10 @@ Example:
       *[hidden] {
         display: none !important;
       }
+
+      paper-scroll-header-panel.bg-container {
+        z-index: -1000;
+      }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
     <birch-popover viewport-positioning id="popover"></birch-popover>
