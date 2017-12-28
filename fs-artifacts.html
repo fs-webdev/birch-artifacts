@@ -9,7 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
-<link rel="import" href="../paper-scroll-header-panel/paper-scroll-header-panel.html">
 <link rel="import" href="../iron-list/iron-list.html">
 <link rel="import" href="../birch-popover/birch-popover.html">
 <link rel="import" href="../fs-album-display/fs-album-display.html">
@@ -43,6 +42,7 @@ Example:
         position: relative;
         width: 100vw;
         -webkit-overflow-scrolling: touch;
+        max-height: calc(100vh - 178px);
       }
 
       #popover {
@@ -325,10 +325,18 @@ Example:
       *[hidden] {
         display: none !important;
       }
+      .scrollContainer {
+        padding-top: 0px;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
     <birch-popover viewport-positioning id="popover"></birch-popover>
-    <paper-scroll-header-panel id='header' class$='{{_viewTypeClass(listView)}}' condenses condensed-header-height='1'>
+    <div id='header' class$='{{_viewTypeClass(listView)}} scrollContainer'>
       <div class="p-header" slot="header">
         <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView, artifacts)]]'></i>
         <div id="album-display-container" hidden='[[!album.id]]'>
@@ -460,7 +468,7 @@ Example:
           </iron-list>
         </template>
       </div>
-    </paper-scroll-header-panel>
+    </div>
   </template>
 </dom-module>
 
