@@ -109,7 +109,8 @@ Example:
       }
 
       iron-list {
-       --iron-list-items-container: {
+        height: 100vh;
+        --iron-list-items-container: {
           padding-bottom: 60px;
         };
       }
@@ -750,9 +751,6 @@ Example:
     },
     _handleDataChange: function() {
       this.missingAlbum = false;
-      this.debounce('birch-artifact-grid-measure-header', function() {
-        if (this.$.header) this.$.header.measureHeaderHeight();
-      }.bind(this));
     },
     _handleDragStart: function(e) {
       if (this.readOnly || this.alertInputActive) {
