@@ -668,6 +668,7 @@ Example:
 
       // List item preview mouseout closes birch-popover.
       this.listen(document, 'list-item-mouseout', '_handleListItemMouseout');
+      this.oncontextmenu = this._handleContextMenu;
     },
     detached: function(){
       this.unlisten(document, 'list-item-hover', '_handleListItemHover');
@@ -692,15 +693,15 @@ Example:
     _handleContextMenu: function(e) {
       if (!this.selectOnContextMenu) return;
       e.preventDefault();
-      var target = e.currentTarget;
-      var parent = e.currentTarget.parentNode;
-      var gParent = parent.parentNode;
-      if (!target.hasAttribute('selected')
-          && !parent.hasAttribute('selected')
-          && !gParent.hasAttribute('selected')) {
+
+      var shadow = Polymer.Settings.useShadow;
+      var el = shadow ? e.currentTarget : Polymer.dom(e).rootTarget;
+      var container = el.closest('div[data-uid]');
+      
+      if (!container.hasAttribute('selected')) {
         this.deselectAll();
         var selector = this.$$('#' + this.listString + '-selector');
-        if (Boolean(selector)) selector.selectItem(getItemById(target.getAttribute('data-uid'), this.artifacts));
+        if (Boolean(selector)) selector.selectItem(getItemById(container.getAttribute('data-uid'), this.artifacts));
       }
     },
     _handleSelectOnly: function(val) {
