@@ -656,13 +656,13 @@ Example:
       var galleryData = document.querySelector('gallery-data');
       var galleryApp = document.querySelector('gallery-app');
       if (!this._cachesCalled) {
-        if (galleryApp || galleryData) {
+        if(galleryApp || galleryData){
           this._loadCaches();
         }
         this._cachesCalled = true;
       }
     },
-    attached: function () {
+    attached: function() {
       // Listens to the list-item preview hover. Handler populates and positions birch-popover.
       this.listen(document, 'list-item-hover', '_handleListItemHover');
 
@@ -670,27 +670,27 @@ Example:
       this.listen(document, 'list-item-mouseout', '_handleListItemMouseout');
       this.oncontextmenu = this._handleContextMenu;
     },
-    detached: function () {
+    detached: function(){
       this.unlisten(document, 'list-item-hover', '_handleListItemHover');
       this.unlisten(document, 'list-item-mouseout', '_handleListItemMouseout');
       // this.unlisten(document, 'open-restricted-info', '_handleRestrictedInfo');
       this.unlisten(document, 'update-artifacts-list', 'updateList');
     },
-    _same: function (a, b) {
+    _same: function(a, b) {
       return a === b;
     },
-    _loadCaches: function () {
+    _loadCaches: function() {
       this._loadCacheViewType();
       this._loadCacheState(this.view);
     },
-    _getBtnIconClass: function (multiple) {
+    _getBtnIconClass: function(multiple) {
       if (multiple) return "check-icon";
       else return "radio-icon";
     },
-    _computeListString: function (listView) {
+    _computeListString: function(listView) {
       return listView ? 'list' : 'grid';
     },
-    _handleContextMenu: function (e) {
+    _handleContextMenu: function(e) {
       if (!this.selectOnContextMenu) return;
       e.preventDefault();
 
@@ -706,26 +706,26 @@ Example:
         if (Boolean(selector)) selector.selectItem(getItemById(realContainer.getAttribute('data-uid'), this.artifacts));
       }
     },
-    _handleSelectOnly: function (val) {
+    _handleSelectOnly: function(val) {
       if (val) {
         this.selectMode = val;
       }
     },
-    _loadCacheState: function (view) {
+    _loadCacheState: function(view) {
       var cache = JSON.parse(sessionStorage.getItem('gallery-scroll-target-' + this.owner));
       if (cache && cache[view] && parseInt(cache[view])) {
         var target = parseInt(cache[view]);
         if (!target) return;
         Polymer.dom.flush();
-        this.addEventListener('dom-loaded', function () {
-          this.async(function () {
+        this.addEventListener('dom-loaded', function(){
+          this.async(function(){
             var selector = Polymer.dom(this.root).querySelector('#' + this.listString + '-selector');
             if (selector) selector.scrollToIndex(target);
           }, 2000);
         });
       }
     },
-    _loadCacheViewType: function () {
+    _loadCacheViewType: function() {
       var cache = localStorage.getItem('gallery-view-type-' + this.owner);
       if (cache) {
         this.listView = cache === 'list-view';
