@@ -694,16 +694,14 @@ Example:
       if (!this.selectOnContextMenu) return;
       e.preventDefault();
 
-      var realContainer;
-      if(Polymer.Settings.useShadow) { // <- Adding Shadow DOM check for querying approach
-        realContainer = e.currentTarget.closest('div[data-uid]');
-      } else {
-        realContainer = Polymer.dom(e).rootTarget.closest('div[data-uid]');  
-      }
-      if (!realContainer.hasAttribute('selected')) {
+      var shadow = Polymer.Settings.useShadow;
+      var el = shadow ? e.currentTarget : Polymer.dom(e).rootTarget;
+      var container = el.closest('div[data-uid]');
+      
+      if (!container.hasAttribute('selected')) {
         this.deselectAll();
         var selector = this.$$('#' + this.listString + '-selector');
-        if (Boolean(selector)) selector.selectItem(getItemById(realContainer.getAttribute('data-uid'), this.artifacts));
+        if (Boolean(selector)) selector.selectItem(getItemById(container.getAttribute('data-uid'), this.artifacts));
       }
     },
     _handleSelectOnly: function(val) {
