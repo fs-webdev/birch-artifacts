@@ -352,7 +352,7 @@ Example:
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
     <birch-popover viewport-positioning id="popover"></birch-popover>
-    <div id='header' class$='{{_viewTypeClass(listView)}} scrollContainer' style="height: calc(100vh - 166px);">
+    <div id='header' class$='{{_viewTypeClass(listView)}} scrollContainer'>
       <div class="p-header" slot="header">
         <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView, artifacts)]]'></i>
         <div id="album-display-container" hidden='[[!album.id]]'>
