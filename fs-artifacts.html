@@ -92,25 +92,38 @@ Example:
         font-size: 1rem;
       }
 
-      .grid-view .p-header {
+      /*.grid-view .p-header {
         min-height: 50px;
       }
       .list-view .p-header {
         min-height: 30px;
-      }
+      }*/
 
       @media all and (max-width: 979px) {
         .grid-view .p-header {
-          min-height: 80px;
+          min-height: 56px;
         }
         .list-view .p-header {
           min-height: 56px;
         }
+        iron-list {
+          padding-top: 30px;
+          height: calc(100vh - 210px);
+          /*overflow-y: inherit !important;*/
+          --iron-list-items-container: {
+            padding-bottom: 60px;
+          };
+        }
+
+        .scrollContainer {
+          height: calc(100vh - 135px) !important;
+        }
       }
 
       iron-list {
-        height: 100vh;
-        overflow-y: inherit !important;
+        padding-top: 30px;
+        height: calc(100vh - 208px);
+        /*overflow-y: inherit !important;*/
         --iron-list-items-container: {
           padding-bottom: 60px;
         };
@@ -327,13 +340,14 @@ Example:
       *[hidden] {
         display: none !important;
       }
+
       .scrollContainer {
         padding-top: 0px;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: hidden;
       }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
