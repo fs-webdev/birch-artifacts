@@ -106,9 +106,10 @@ Example:
         .p-header {
           height: 0;
         }
-        iron-list {
-          overflow: hidden !important;
-        }
+      }
+
+      iron-list {
+        overflow: hidden !important;
       }
 
       #empty-album-notification {
@@ -330,6 +331,7 @@ Example:
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
         overflow-y: auto;
+        z-index: 1; /* List-view scrollbar in gallery requires this */
       }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
