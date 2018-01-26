@@ -92,41 +92,17 @@ Example:
         font-size: 1rem;
       }
 
-      /*.grid-view .p-header {
-        min-height: 50px;
+      .p-header {
+        height: 56px;
       }
-      .list-view .p-header {
-        min-height: 30px;
-      }*/
 
       @media all and (max-width: 979px) {
-        .grid-view .p-header {
-          min-height: 56px;
+        :host {
+          top: 50px;
         }
-        .list-view .p-header {
-          min-height: 56px;
+        .fit.scrollContainer {
+          height: calc(100vh - 180px);
         }
-        iron-list {
-          padding-top: 30px;
-          height: calc(100vh - 210px);
-          /*overflow-y: inherit !important;*/
-          --iron-list-items-container: {
-            padding-bottom: 60px;
-          };
-        }
-
-        .scrollContainer {
-          height: calc(100vh - 135px) !important;
-        }
-      }
-
-      iron-list {
-        padding-top: 30px;
-        height: calc(100vh - 208px);
-        /*overflow-y: inherit !important;*/
-        --iron-list-items-container: {
-          padding-bottom: 60px;
-        };
       }
 
       #empty-album-notification {
@@ -347,7 +323,7 @@ Example:
         box-sizing: border-box;
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
-        overflow-y: hidden;
+        overflow-y: auto;
       }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
