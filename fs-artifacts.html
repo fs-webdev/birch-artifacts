@@ -330,8 +330,11 @@ Example:
         box-sizing: border-box;
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
-        right: -17px;
-        padding-right: 17px;
+      }
+      /* Hidden scrollbar */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
       }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
