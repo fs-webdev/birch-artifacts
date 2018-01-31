@@ -404,7 +404,7 @@ Example:
             selection-enabled
             scroll-target='[[_boundScroller]]'
             selected-items='{{selectedItems}}'
-            on-scroll='_cacheScrollState'>
+            on-scroll='_handleScroll'>
             <template>
               <div class="item grid-item"
                 data-uid$='[[artifact.id]]'
@@ -449,7 +449,7 @@ Example:
             selection-enabled
             scroll-target='[[_boundScroller]]'
             selected-items='{{selectedItems}}'
-            on-scroll='_cacheScrollState'>
+            on-scroll='_handleScroll'>
             <template>
               <div class="item list-item"
                 data-uid$='[[artifact.id]]'
