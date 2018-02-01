@@ -37,11 +37,12 @@ Example:
       :host {
         background: #ECEBEA;
         display:block;
-        height: calc(100vh - 170px);
+        height: 100vh;
         max-width: 100%;
         position: relative;
         width: 100vw;
         -webkit-overflow-scrolling: touch;
+        max-height: calc(100vh - 178px);
       }
 
       #popover {
@@ -91,18 +92,34 @@ Example:
         font-size: 1rem;
       }
 
+      /*.grid-view .p-header {
+        min-height: 50px;
+      }
+      .list-view .p-header {
+        min-height: 30px;
+      }*/
+
       @media all and (max-width: 979px) {
-        :host {
-          top: 50px;
-          max-height: calc(100vh - 148px);
+        .grid-view .p-header {
+          min-height: 56px;
+        }
+        .list-view .p-header {
+          min-height: 56px;
+        }
+        iron-list {
+          padding-top: 30px;
+          height: calc(100vh - 210px);
+          /*overflow-y: inherit !important;*/
+          --iron-list-items-container: {
+            padding-bottom: 60px;
+          };
         }
       }
-      
+
       iron-list {
-        height: calc(100vh - 200px);        
-        overflow-x: hidden;
-        overflow-y: inherit;
         padding-top: 30px;
+        height: calc(100vh - 208px);
+        /*overflow-y: inherit !important;*/
         --iron-list-items-container: {
           padding-bottom: 60px;
         };
@@ -381,9 +398,9 @@ Example:
             items='[[artifacts]]'
             multi-selection='[[multiple]]'
             selection-enabled
-            scroll-target='[[_boundScroller]]'
+            scroll-target='document'
             selected-items='{{selectedItems}}'
-            on-scroll='_cacheScrollState'>
+            on-scroll='_handleScroll'>
             <template>
               <div class="item grid-item"
                 data-uid$='[[artifact.id]]'
@@ -426,9 +443,9 @@ Example:
             items='[[artifacts]]'
             multi-selection='[[multiple]]'
             selection-enabled
-            scroll-target='[[_boundScroller]]'
+            scroll-target='document'
             selected-items='{{selectedItems}}'
-            on-scroll='_cacheScrollState'>
+            on-scroll='_handleScroll'>
             <template>
               <div class="item list-item"
                 data-uid$='[[artifact.id]]'
@@ -488,9 +505,6 @@ Example:
     properties: {
       _selectedNodes: {
         type: Array
-      },
-      _boundScroller: {
-        type: Object
       },
       _cachesCalled: {
         type: Boolean,
@@ -631,8 +645,6 @@ Example:
       '_handleDataChange(album.*, artifacts.*)'
     ],
     ready: function() {
-      this._boundScroller = this.$.header.scroller;
-
       var self = this;
       this.listen(document, 'gallery-deselect-all', 'deselectAll');
       this.listen(document, 'update-artifacts-list', 'updateList');
