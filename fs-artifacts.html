@@ -37,12 +37,12 @@ Example:
       :host {
         background: #ECEBEA;
         display:block;
-        height: 100vh;
+        height: calc(100vh - 170px);
         max-width: 100%;
         position: relative;
         width: 100vw;
+        top: 8px;
         -webkit-overflow-scrolling: touch;
-        max-height: calc(100vh - 178px);
       }
 
       #popover {
@@ -92,38 +92,18 @@ Example:
         font-size: 1rem;
       }
 
-      /*.grid-view .p-header {
-        min-height: 50px;
-      }
-      .list-view .p-header {
-        min-height: 30px;
-      }*/
-
       @media all and (max-width: 979px) {
-        .grid-view .p-header {
-          min-height: 56px;
-        }
-        .list-view .p-header {
-          min-height: 56px;
-        }
-        iron-list {
-          padding-top: 30px;
-          height: calc(100vh - 210px);
-          /*overflow-y: inherit !important;*/
-          --iron-list-items-container: {
-            padding-bottom: 60px;
-          };
-        }
-
-        .scrollContainer {
-          height: calc(100vh - 135px) !important;
+        :host {
+          top: 50px;
+          max-height: calc(100vh - 148px);
         }
       }
-
+      
       iron-list {
+        height: calc(100vh - 200px);        
+        overflow-x: hidden;
+        overflow-y: inherit;
         padding-top: 30px;
-        height: calc(100vh - 208px);
-        /*overflow-y: inherit !important;*/
         --iron-list-items-container: {
           padding-bottom: 60px;
         };
@@ -347,7 +327,7 @@ Example:
         box-sizing: border-box;
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
-        overflow-y: hidden;
+        overflow-y: auto;
       }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
