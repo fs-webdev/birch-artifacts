@@ -3,7 +3,6 @@ module.exports = {
     "sauce": {
       "disabled": true, 
       "browsers": [
-        "Windows 8.1/internet explorer",
         "Windows 10/microsoftedge",
         "OS X 10.12/safari"
     ]
