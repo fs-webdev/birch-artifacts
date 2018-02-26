@@ -937,15 +937,7 @@ Example:
     },
     _handleArtifactsChange: function() {
       var selector = this.$$('#' + this.listString + '-selector');
-      /* TL;DR this basically a hack to fix a selection problem when loading the
-      component while 'multiple' is true
-
-      If not here, the checkmarks will not uncheck, and you will get duplicates
-      in the 'selectedItems' array for already selected items.
-      -- Start of terrible code -- */
-      if (selector && this.listView != undefined) selector.selectIndex(0);
       this.deselectAll();
-      // -- End of terrible code --
       if (Boolean(selector)) {
         this.listen(selector, 'dom-change', '_domChangeListener');
       }
