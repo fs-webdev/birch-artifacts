@@ -37,11 +37,11 @@ Example:
       :host {
         background: #ECEBEA;
         display:block;
-        height: calc(100vh - 170px);
+        height: 100vh;
         max-width: 100%;
-        position: relative;
+        /* position: relative; */
         width: 100vw;
-        top: 8px;
+        /* top: 8px; */
         -webkit-overflow-scrolling: touch;
       }
 
@@ -92,14 +92,8 @@ Example:
         font-size: 1rem;
       }
 
-      @media all and (max-width: 979px) {
-        :host {
-          top: 50px;
-          max-height: calc(100vh - 148px);
-        }
-      }
-      
       iron-list {
+        /* height: calc(100vh - 310px);         */
         height: calc(100vh - 200px);        
         overflow-x: hidden;
         overflow-y: inherit;
@@ -109,6 +103,27 @@ Example:
         };
       }
 
+      .scrollContainer {
+        /* height: calc(100vh - 280px); This is for the artifact-selector */
+        height: calc(100vh - 112px); /* This is for gallery */
+        padding-top: 0px;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      
+      @media all and (max-width: 979px) {
+        iron-list {
+          height: calc(100vh - 158px);
+        }
+        .scrollContainer {
+          height: calc(100vh - 128px);
+          padding-top: 45px;
+        }
+      }
+      
       #empty-album-notification {
         position: relative;
         text-align: center;
@@ -309,25 +324,8 @@ Example:
         color: #666662;
       }
 
-      .fit {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-
       *[hidden] {
         display: none !important;
-      }
-
-      .scrollContainer {
-        padding-top: 0px;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-overflow-scrolling: touch;
-        overflow-x: hidden;
-        overflow-y: auto;
       }
     </style>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
@@ -851,7 +849,7 @@ Example:
       });
     },
     _viewTypeClass: function (listView) {
-      return listView ? 'fit list-view' : 'fit grid-view';
+      return listView ? 'list-view' : 'grid-view';
     },
     _itemClasses: function(listView) {
       var classString = listView ? 'list-item' : 'grid-item';
@@ -938,6 +936,7 @@ Example:
     _handleArtifactsChange: function() {
       var selector = this.$$('#' + this.listString + '-selector');
       this.deselectAll();
+
       if (Boolean(selector)) {
         this.listen(selector, 'dom-change', '_domChangeListener');
       }
