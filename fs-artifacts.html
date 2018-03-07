@@ -937,6 +937,10 @@ Example:
     },
     _handleArtifactsChange: function() {
       var selector = this.$$('#' + this.listString + '-selector');
+      // The line below is required to prevent deselection bug in Polymer 1
+      // The bug doesn't occur in Polymer 2, so until Tree (which consumes 
+      // this component) gets off Polymer 1, it is needed.
+      if (selector && this.listView != undefined) selector.selectIndex(0);
       this.deselectAll();
       if (Boolean(selector)) {
         this.listen(selector, 'dom-change', '_domChangeListener');
