@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG514": "fs-artifacts_1_105 - CHANGES-ONLY",
   "go-to-memories": "내 추억으로 바로가기",
+  "missing_album": "이 앨범은 더 이상 존재하지 않습니다.",
   "no-album": "이 앨범은 더 이상 존재하지 않습니다.",
   "recently_deleted_explanation": "아래의 추억은 120일 후에 영구적으로 삭제될 것입니다. 최근 삭제됨 편지함에 있는 경우 다른 사람들이 이를 보거나 편집하거나 패밀리 트리에 첨부할 수 없습니다.",
   "recently_deleted_header": "최근에 삭제됨",
