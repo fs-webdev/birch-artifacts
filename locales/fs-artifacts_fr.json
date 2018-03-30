@@ -1,5 +1,7 @@
 {
+  "_LRM_PKTAG773": "fs-artifacts_1_102 - CHANGES-ONLY",
   "go-to-memories": "Aller à « Mes souvenirs »",
+  "missing_album": "Cet album n’existe plus.",
   "no-album": "Cet album n’existe plus.",
   "recently_deleted_explanation": "Les souvenirs ci-dessous seront automatiquement effacés après cent vingt jours. Tandis qu’ils figurent dans la rubrique « Supprimés récemment », ils ne peuvent être affichés par d’autres personnes, modifiés ou joints à l’Arbre Familial.",
   "recently_deleted_header": "Supprimés récemment",
