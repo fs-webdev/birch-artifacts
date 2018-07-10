@@ -686,7 +686,7 @@ Example:
       var el = shadow ? e.currentTarget : Polymer.dom(e).rootTarget;
       var container = el.closest('div[data-uid]');
       
-      if (!container.hasAttribute('selected')) {
+      if (container && !container.hasAttribute('selected')) {
         this.deselectAll();
         var selector = this.$$('#' + this.listString + '-selector');
         if (Boolean(selector)) selector.selectItem(getItemById(container.getAttribute('data-uid'), this.artifacts));
