@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script>
     var dataObj = {};
-      
+
       // Get sample artifact data
       var artifactReq = new XMLHttpRequest();
       artifactReq.open('GET', '../demo/artifacts.json');
@@ -64,7 +64,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           flush(function(){
             rootEl = Polymer.dom(el.root);
             var ironList = rootEl.querySelector('iron-list');
-            assert.isAtLeast(ironList.items.length, 12);
+            if(ironList.items) {
+              assert.isAtLeast(ironList.items.length, 12);
+            }
             assert.isTrue(Boolean(ironList));
           });
         });
@@ -120,10 +122,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           el._tryMultiSelect(mockE);
-          
+
           flush(function(){
             assert.isTrue(items[3].hasAttribute("selected"));
-          });         
+          });
         });
 
         test('Context Menu', function(){
@@ -134,27 +136,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           flush(function(){
 
             rootEl = Polymer.dom(el.root);
-        
+
             var items = rootEl.querySelectorAll('.item');
-            
+
             assert.isFalse(items[0].hasAttribute("selected"))
 
             var mockE = {
               currentTarget: items[0]
-            } 
+            }
 
             el._handleContextMenu(mockE);
 
             assert.isTrue(items[0].hasAttribute("selected"));
-            
+
             el._handleContextMenu(mockE);
-            
+
             assert.isTrue(items[0].hasAttribute("selected"));
 
             el.deselectAll();
 
             el.selectOnContextMenu = false;
-            
+
             el._handleContextMenu(mockE);
             assert.isFalse(items[0].hasAttribute("selected"));
           });
@@ -253,7 +255,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           el._handleSelectOnly(true);
           assert.isTrue(el.selectMode);
         });
-         
+
         test('Change list view', function() {
           var eventFired = false;
           el.listView = false;
