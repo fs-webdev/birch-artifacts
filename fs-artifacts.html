@@ -401,7 +401,7 @@ Example:
                     alert-input-active='{{alertInputActive}}'
                     inline-adding-enabled='[[inlineAddingEnabled]]'></fs-artifact-grid-item>
                     <template is="dom-if" if="[[!disableSelect]]">
-                      <i class$="grid-select {{_getBtnIconClass(multiple)}}"></i>
+                      <i class$="grid-select {{_getBtnIconClass(multiple)}}" data-test="GridSelect"></i>
                     </template>
                 </template>
                 <template is="dom-if" if="[[!artifact.id]]">
@@ -447,7 +447,7 @@ Example:
                     alert-input-active='{{alertInputActive}}'
                     inline-adding-enabled='[[inlineAddingEnabled]]'></fs-artifact-list-item>
                   <template is="dom-if" if="[[!disableSelect]]">
-                    <i class$="list-select {{_getBtnIconClass(multiple)}}"></i>
+                    <i class$="list-select {{_getBtnIconClass(multiple)}}" data-test="ListSelect"></i>
                   </template>
                 </template>
                 <template is="dom-if" if="[[!artifact.id]]">
