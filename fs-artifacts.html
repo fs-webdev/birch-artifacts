@@ -328,7 +328,7 @@ Example:
     <birch-popover viewport-positioning id="popover"></birch-popover>
     <div id='header' class$='{{_viewTypeClass(listView)}} scrollContainer'>
       <div class="p-header" slot="header">
-        <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView, artifacts)]]'></i>
+        <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView)]]'></i>
         <div id="album-display-container" hidden='[[!album.id]]'>
           <fs-album-display data-test='album-info'
             logged-out='[[readOnly]]'
@@ -788,10 +788,8 @@ Example:
       if (this.readOnly) return;
       this.fire('toggleUploadDrag', { 'disable' : false });
     },
-    _hideLoading: function(loadingData, loadingView, artifacts) {
-      if (!loadingView && artifacts && artifacts.length) return true;
-      if (loadingView) return false;
-      return !loadingData;
+    _hideLoading: function(loadingData, loadingView) {
+      return !loadingData && !loadingView;
     },
     _readOnlyAlbum: function(readOnly, editableByCaller) {
       return readOnly || !editableByCaller;
