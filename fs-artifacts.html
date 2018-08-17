@@ -517,6 +517,7 @@ Example:
       },
       selectedItems: {
         type: Array,
+        value: function() { return []; },
         notify: true
       },
       loadingData: {
@@ -627,7 +628,8 @@ Example:
     ],
     ready: function() {
       this._boundScroller = this.$.header.scroller;
-
+      // For some reason when re-visiting the gallery this.selectedItems is undefined
+      if (!this.selectedItems) this.selectedItems = [];
       var self = this;
       this.listen(document, 'gallery-deselect-all', 'deselectAll');
       this.listen(document, 'update-artifacts-list', 'updateList');
