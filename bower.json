@@ -26,7 +26,7 @@
     "iron-media-query": "PolymerElements/iron-media-query#^2.0.0",
     "fs-artifact-grid-item": "fs-webdev/fs-artifact-grid-item#4.x",
     "fs-artifact-list-item": "fs-webdev/fs-artifact-list-item#4.x",
-    "fs-album-display": "fs-webdev/fs-album-display#4.x",
+    "fs-album-display": "fs-webdev/fs-album-display#reorder-albums",
     "oak-i18n-behavior": "fs-webdev/oak-i18n-behavior#1.x",
     "fs-styles": "fs-webdev/fs-styles#3.x",
     "birch-popover": "fs-webdev/birch-popover#2.x"
