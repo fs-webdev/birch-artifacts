@@ -337,6 +337,8 @@ Example:
             read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
             show-share
             album='[[album]]'
+            artifacts='{{artifacts}}'
+            list-view='[[listView]]'
             show-owner='[[showAlbumOwner]]'
             on-edit-album='_handleDataChange'></fs-album-display>
           <div id="empty-album-notification" hidden='[[artifacts.length]]'>
