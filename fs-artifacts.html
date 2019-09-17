@@ -663,12 +663,28 @@ Example:
       // List item preview mouseout closes birch-popover.
       this.listen(document, 'list-item-mouseout', '_handleListItemMouseout');
       this.oncontextmenu = this._handleContextMenu;
+      this.listen(document, 'artifact-updated', '_handleArtifactUpdated');
     },
     detached: function(){
       this.unlisten(document, 'list-item-hover', '_handleListItemHover');
       this.unlisten(document, 'list-item-mouseout', '_handleListItemMouseout');
       // this.unlisten(document, 'open-restricted-info', '_handleRestrictedInfo');
       this.unlisten(document, 'update-artifacts-list', 'updateList');
+    },
+    _handleArtifactUpdated: function(e) {
+      const updatedArtifact = e.detail.artifact;
+      const artifactId = e.detail.artifact.id;
+
+      if (!updatedArtifact) return;
+
+      for (let i = 0; this.artifacts.length; i++) {
+        if (this.artifacts[i].id == artifactId) {
+          console.log('updating ', e.detail.artifact)
+          this.splice('artifacts', i, 1, e.detail.artifact)
+          break;
+        }
+      }
+
     },
     _same: function(a, b) {
       return a === b;
