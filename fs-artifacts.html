@@ -129,6 +129,22 @@ Example:
         margin-bottom: 50px;
       }
 
+      #empty-gallery-notification {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+
+      #empty-favorites-notification {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+
       .text-wrap {
         text-align: center;
         margin: 20px auto 0;
@@ -367,6 +383,32 @@ Example:
           <div id="missing-album-header">
             <h5>[[i18n('missing_album')]]</h5>
             <button class="fs-button fs-button--recommended" on-click="_handleGoToMemories">[[i18n('go-to-memories')]]</button>
+          </div>
+        </div>
+        <div id="gallery-header" hidden="[[!_same(view, 'my-memories')]]">
+          <div id="empty-gallery-notification" hidden='[[artifacts.length]]'>
+            <i hidden='{{_hideIfEitherArgTrue(mobile, readOnly)}}' class="empty-album-image"></i>
+            <div class='text-wrap'>
+              <p hidden='[[_hideIfEitherArgTrue(mobile, readOnly)]]'>
+                [[i18n('text')]]
+              </p>
+              <p hidden='[[_hideIfEitherArgFalseTrue(mobile, readOnly)]]'>
+                [[i18n('text-mobile')]]
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="favorites-header" hidden="[[!_same(view, 'my-favorites')]]">
+          <div id="empty-favorites-notification" hidden='[[artifacts.length]]'>
+            <i hidden='{{_hideIfEitherArgTrue(mobile, readOnly)}}' class="empty-album-image"></i>
+            <div class='text-wrap'>
+              <p hidden='[[_hideIfEitherArgTrue(mobile, readOnly)]]'>
+                [[i18n('text')]]
+              </p>
+              <p hidden='[[_hideIfEitherArgFalseTrue(mobile, readOnly)]]'>
+                [[i18n('text-mobile')]]
+              </p>
+            </div>
           </div>
         </div>
       </div>
