@@ -331,7 +331,7 @@ Example:
     <div id='header' class$='{{_viewTypeClass(listView)}} scrollContainer'>
       <div class="p-header" slot="header">
         <i class='loading-icon' hidden='[[_hideLoading(loadingData, loadingView)]]'></i>
-        <div id="album-display-container">
+        <div id="album-display-container" hidden='[[!album.id]]'>
           <fs-album-display data-test='album-info'
             logged-out='[[readOnly]]'
             read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
@@ -340,8 +340,7 @@ Example:
             artifacts='{{artifacts}}'
             list-view='[[listView]]'
             show-owner='[[showAlbumOwner]]'
-            on-edit-album='_handleDataChange'
-            hidden='[[!album.id]]'></fs-album-display>
+            on-edit-album='_handleDataChange'></fs-album-display>
           <div id="empty-album-notification" hidden='[[artifacts.length]]'>
             <i hidden='{{_hideIfEitherArgTrue(mobile, readOnly)}}' class="empty-album-image"></i>
             <div class='text-wrap'>
