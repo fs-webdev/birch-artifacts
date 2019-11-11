@@ -1,12 +1,13 @@
 {
-  "_LRM_PKTAG341": "fs-artifacts_1_106 - CHANGES-ONLY",
-  "go-to-memories": "Ir para Minhas Recordações",
-  "missing_album": "Este álbum não existe mais.",
-  "no-album": "Este álbum não existe mais.",
-  "recently_deleted_explanation": "As recordações abaixo vão ser excluídas permanentemente depois de 120 dias. Enquanto estiverem na pasta “Excluídas Recentemente”, elas não poderão ser vistas por outras pessoas, alteradas, nem anexadas à Árvore Familiar.",
-  "recently_deleted_header": "Excluídas Recentemente",
+  "title": "Comece a Coletar Recordações",
   "text": "Clique no botão verde, acima, para acrescentar as recordações ou arraste-as e solte-as no álbum.",
   "text-mobile": "Clique no botão verde para acrescentar as recordações ou selecione recordações de um outro álbum.",
-  "title": "Comece a Coletar Recordações",
-  "unauth-text": "Não há nenhuma recordação deste tipo."
+  "text-collection": "Clique no sinal de “mais” verde para acrescentar as recordações ou arraste-as e solte-as no álbum.",
+  "text-mobile-collection": "Clique no sinal de “mais” verde para acrescentar as recordações ou selecione recordações de um outro álbum.",
+  "unauth-text": "Não há nenhuma recordação deste tipo.",
+  "no-album": "Este álbum não existe mais.",
+  "go-to-memories": "Ir para Minhas Recordações",
+  "recently_deleted_header": "Excluídas Recentemente",
+  "recently_deleted_explanation": "As recordações abaixo vão ser excluídas permanentemente depois de 120 dias. Enquanto estiverem na pasta “Excluídas Recentemente”, elas não poderão ser vistas por outras pessoas, alteradas, nem anexadas à Árvore Familiar.",
+  "missing_album": "Este álbum não existe mais."
 }
