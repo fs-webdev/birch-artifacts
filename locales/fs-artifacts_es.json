@@ -1,12 +1,13 @@
 {
-  "_LRM_PKTAG793": "fs-artifacts_1_101 - CHANGES-ONLY",
-  "go-to-memories": "Ir a Mis recuerdos",
-  "missing_album": "Este álbum ya no existe.",
-  "no-album": "Este álbum ya no existe.",
-  "recently_deleted_explanation": "Después de 120 días, los siguientes recuerdos serán eliminados de manera permanente. Mientras estén en Eliminado recientemente, no podrán ser vistos por otras personas, ni editados, ni se podrán adjuntar al Árbol Familiar.  ",
-  "recently_deleted_header": "Eliminado recientemente",
+  "title": "Empezar a recopilar recuerdos",
   "text": "Haga clic en el signo más de color verde para agregar recuerdos a este álbum o arrastre y suelte los recuerdos en el álbum.",
   "text-mobile": "Haz clic en el signo más de color verde para agregar recuerdos a este álbum o selecciona los recuerdos de otro álbum.",
-  "title": "Empezar a recopilar recuerdos",
-  "unauth-text": "No hay recuerdos de este tipo."
+  "text-collection": "Haz clic en el signo más de color verde para agregar recuerdos a esta colección o arrastra y suelta los recuerdos en la colección.",
+  "text-mobile-collection": "Haz clic en el signo más de color verde para agregar recuerdos a esta colección o selecciona los recuerdos de otra colección.",
+  "unauth-text": "No hay recuerdos de este tipo.",
+  "no-album": "Este álbum ya no existe.",
+  "go-to-memories": "Ir a Mis recuerdos",
+  "recently_deleted_header": "Eliminado recientemente",
+  "recently_deleted_explanation": "Después de 120 días, los siguientes recuerdos serán eliminados de manera permanente. Mientras estén en Eliminado recientemente, no podrán ser vistos por otras personas, ni editados, ni se podrán adjuntar al Árbol Familiar.  ",
+  "missing_album": "Este álbum ya no existe."
 }
