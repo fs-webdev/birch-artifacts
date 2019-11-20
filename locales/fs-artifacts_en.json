@@ -2,6 +2,8 @@
   "title":"Start Collecting Memories",
   "text":"Click on the green plus to add memories to this album, or drag and drop memories into the album.",
   "text-mobile":"Click on the green plus to add memories to this album, or select memories from a different album.",
+  "text-collection":"Click on the green plus to add memories to this collection, or drag and drop memories into the collection.",
+  "text-mobile-collection":"Click on the green plus to add memories to this collection, or select memories from a different collection.",
   "unauth-text":"There are no memories of this type.",
   "no-album":"This album no longer exists.",
   "go-to-memories": "Go to My Memories",
