@@ -859,7 +859,6 @@ Example:
       // Poll Dom to signal when to display it and turn off spinner.
       var pollDom = setInterval(function() {
         if (!this.isDebouncerActive('fs-artifacts-view-change')) {
-          this.loadingView = false;
           clearInterval(pollDom);
           this.unlisten(this.$.header, 'dom-change', '_handleViewDomChange');
           if (!this._domInitialLoad) this.fire('dom-loaded');
