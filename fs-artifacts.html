@@ -849,7 +849,6 @@ Example:
       // what has been rendered.
       setTimeout(function(){
         clearInterval(pollDom);
-        this.loadingView = false;
         this.unlisten(this.$.header, 'dom-change', '_handleViewDomChange');
         if (!this._domInitialLoad) this.fire('dom-loaded');
         this._domInitialLoad = true;
