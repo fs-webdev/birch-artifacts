@@ -851,6 +851,7 @@ Example:
         clearInterval(pollDom);
         this.unlisten(this.$.header, 'dom-change', '_handleViewDomChange');
         if (!this._domInitialLoad) this.fire('dom-loaded');
+        this.loadingView = false;
         this._domInitialLoad = true;
         this._domChangeTimeout = true;
       }.bind(this), 7000);
@@ -861,6 +862,7 @@ Example:
           clearInterval(pollDom);
           this.unlisten(this.$.header, 'dom-change', '_handleViewDomChange');
           if (!this._domInitialLoad) this.fire('dom-loaded');
+          this.loadingView = false;
           this._domInitialLoad = true;
           this._domChangeTimeout = true;
         }
