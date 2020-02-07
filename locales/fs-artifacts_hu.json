@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "Ugrás az emlékeimhez",
+  "missing_album": "Ez az album már nem létezik.",
+  "no-album": "Ez az album már nem létezik.",
+  "recently_deleted_explanation": "A lenti emlékek 120 nap után véglegesen törölve lesznek. Amíg nemrég töröltek között vannak, addig nem tekinthetők meg mások által, nem szerkeszthetők, és nem csatolhatók a Családfához.",
+  "recently_deleted_header": "Nemrég törölve",
+  "text": "Emlékek ebbe az albumba tételéhez kattints a zöld plusz jelre, vagy húzz át emlékeket az albumba.",
+  "text-collection": "Emlékek ebbe a gyűjteménybe tételéhez kattints a zöld plusz jelre, vagy húzz át emlékeket a gyűjteménybe.",
+  "text-mobile": "Emlékek ebbe az albumba tételéhez kattints a zöld plusz jelre, vagy válassz ki emlékeket egy másik albumból.",
+  "text-mobile-collection": "Emlékek ebbe a gyűjteménybe tételéhez kattints a zöld plusz jelre, vagy válassz ki emlékeket egy másik gyűjteményből.",
+  "title": "Emlékek gyűjtésének elkezdése",
+  "unauth-text": "Nincs ilyen típusú emlék."
+}
