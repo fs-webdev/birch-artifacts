@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "Gå till Mina minnen",
+  "missing_album": "Det här albumet finns inte längre.",
+  "no-album": "Det här albumet finns inte längre.",
+  "recently_deleted_explanation": "Minnena nedan raderas permanent efter 120 dagar. De kan inte ses av andra, redigeras eller bifogas till Släktträdet medan de ligger i Nyligen raderat.",
+  "recently_deleted_header": "Nyligen raderat",
+  "text": "Klicka på det gröna plustecknet för att lägga till minnen i det här albumet, eller dra och släpp minnen i albumet.",
+  "text-collection": "Klicka på det gröna plustecknet för att lägga till minnen i den här samlingen, eller dra och släpp minnen i samlingen.",
+  "text-mobile": "Klicka på det gröna plustecknet för att lägga till minnen i det här albumet, eller välj minnen ur ett annat album.",
+  "text-mobile-collection": "Klicka på det gröna plustecknet för att lägga till minnen i den här samlingen, eller välj minnen ur en annan samling.",
+  "title": "Börja samla minnen",
+  "unauth-text": "Det finns inga minnen av den här typen."
+}

@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "前往「我的回忆」",
+  "missing_album": "此专辑已不存在。",
+  "no-album": "此专辑已不存在。",
+  "recently_deleted_explanation": "下方的回忆会在120天后永久删除。而在「最近删除的回忆」中，这些回忆无法供他人检视、编辑，也无法附加到「家谱树」。",
+  "recently_deleted_header": "最近删除的回忆",
+  "text": "点选绿色加号，把回忆加入此专辑，或把回忆拖放至专辑中。",
+  "text-collection": "按一下绿色加号，把回忆加入此收藏，或把回忆拖放至收藏中。",
+  "text-mobile": "点选绿色加号，把回忆加入此专辑，或从不同专辑中选取回忆。",
+  "text-mobile-collection": "按一下绿色加号，把回忆加入此收藏，或从不同收藏中选取回忆。",
+  "title": "开始收集回忆",
+  "unauth-text": "没有此类的回忆。"
+}
