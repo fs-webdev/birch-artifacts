@@ -91,8 +91,6 @@ Example:
 
       iron-list {
         height: calc(100vh - 200px);        
-        overflow-x: hidden;
-        overflow-y: inherit;
         padding-top: 30px;
         --iron-list-items-container: {
           padding-bottom: 60px;
@@ -100,7 +98,7 @@ Example:
       }
 
       .scrollContainer {
-        height: calc(100vh - 112px);
+        height: calc(100vh - 150px);
         padding-top: 0px;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -111,13 +109,9 @@ Example:
       
       @media all and (max-width: 979px) {
         iron-list {
-          height: calc(100vh - 200px);
           --iron-list-items-container: {
             padding-bottom: 130px;
           };
-        }
-        .scrollContainer {
-          height: calc(100vh - 150px);
         }
       }
       
@@ -408,7 +402,7 @@ Example:
             items='[[artifacts]]'
             multi-selection='[[multiple]]'
             selection-enabled
-            scroll-target='[[_boundScroller]]'
+            scroll-target='header'
             selected-items='{{selectedItems}}'
             on-scroll='_handleScroll'>
             <template>
@@ -453,7 +447,7 @@ Example:
             items='[[artifacts]]'
             multi-selection='[[multiple]]'
             selection-enabled
-            scroll-target='[[_boundScroller]]'
+            scroll-target='header'
             selected-items='{{selectedItems}}'
             on-scroll='_handleScroll'>
             <template>
@@ -515,9 +509,6 @@ Example:
     properties: {
       _selectedNodes: {
         type: Array
-      },
-      _boundScroller: {
-        type: Object
       },
       _cachesCalled: {
         type: Boolean,
@@ -659,7 +650,6 @@ Example:
       '_handleDataChange(album.*, artifacts.*)'
     ],
     ready: function() {
-      this._boundScroller = this.$.header.scroller;
       // For some reason when re-visiting the gallery this.selectedItems is undefined
       if (!this.selectedItems) this.selectedItems = [];
       var self = this;
