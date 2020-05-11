@@ -4,7 +4,7 @@
   "text-mobile":"Click on the green plus to add memories to this album, or select memories from a different album.",
   "text-collection":"Click on the green plus to add memories to this collection, or drag and drop memories into the collection.",
   "text-mobile-collection":"Click on the green plus to add memories to this collection, or select memories from a different collection.",
-  "unauth-text":"There are no memories of this type.",
+  "unauth-text":"This album is empty.",
   "no-album":"This album no longer exists.",
   "go-to-memories": "Go to My Memories",
   "recently_deleted_header": "Recently Deleted",
