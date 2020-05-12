@@ -362,7 +362,7 @@ Example:
         <div id="album-display-container" hidden='[[!album.id]]'>
           <fs-album-display data-test='album-info'
             logged-out='[[readOnly]]'
-            read-only='[[_readOnlyAlbum(readOnly, album.editableByCaller)]]'
+            read-only='[[readOnlyAlbum]]'
             show-share
             album='[[album]]'
             artifacts='{{artifacts}}'
@@ -370,18 +370,21 @@ Example:
             show-owner='[[showAlbumOwner]]'
             on-edit-album='_handleDataChange'></fs-album-display>
           <div id="empty-album-notification" hidden='[[artifacts.length]]'>
-            <i hidden='{{_hideIfEitherArgTrue(mobile, readOnly)}}' class="empty-album-image"></i>
+            <i hidden='{{_hideIfEitherArgTrue(mobile, readOnlyAlbum)}}' class="empty-album-image"></i>
+            <i hidden='{{_hideIfEitherArgFalseTrue(readOnlyAlbum, mobile)}}'>
+              <svg width="153" height="116" viewBox="0 0 153 116" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M149 116H4C1.79086 116 0 114.209 0 112V14.5C0 12.2909 1.79086 10.5 4 10.5H8.86242C10.4625 10.5 11.9087 9.54641 12.539 8.07567L14.961 2.42432C15.5913 0.953588 17.0375 0 18.6376 0H49.1787C50.6141 0 51.9395 0.769145 52.6517 2.01544L56.3483 8.48456C57.0605 9.73086 58.3859 10.5 59.8213 10.5H149C151.209 10.5 153 12.2909 153 14.5V112C153 114.209 151.209 116 149 116Z" fill="#DAD9D7"/><path d="M149 116H4C1.79086 116 0 114.209 0 112V21C0 18.7909 1.79086 17 4 17H11.5H19H40.5H57.5H149C151.209 17 153 18.7909 153 21V112C153 114.209 151.209 116 149 116Z" fill="#CACAC9"/></svg>
+            </i>
             <div class='text-wrap'>
-              <h5 hidden='[[readOnly]]'>
+              <h5 hidden='[[readOnlyAlbum]]'>
                 [[i18n('title')]]
               </h5>
-              <h5 hidden='[[!readOnly]]'>
+              <h5 hidden='[[!readOnlyAlbum]]'>
                 [[i18n('unauth-text')]]
               </h5>
-              <p hidden='[[_hideIfEitherArgTrue(mobile, readOnly)]]'>
+              <p hidden='[[_hideIfEitherArgTrue(mobile, readOnlyAlbum)]]'>
                 [[i18n('text')]]
               </p>
-              <p hidden='[[_hideIfEitherArgFalseTrue(mobile, readOnly)]]'>
+              <p hidden='[[_hideIfEitherArgFalseTrue(mobile, readOnlyAlbum)]]'>
                 [[i18n('text-mobile')]]
               </p>
             </div>
@@ -670,6 +673,10 @@ Example:
       missingAlbum: {
         type: Boolean,
         value: false
+      },
+      readOnlyAlbum: {
+        type: Boolean,
+        computed: '_computeReadOnlyAlbum(readOnly, album.editableByCaller)'
       }
     },
     observers: [
@@ -731,6 +738,9 @@ Example:
     },
     _computeListString: function(listView) {
       return listView ? 'list' : 'grid';
+    },
+    _computeReadOnlyAlbum(readOnly, albumEditableByCaller) {
+      return readOnly || !albumEditableByCaller;
     },
     _handleContextMenu: function(e) {
       if (!this.selectOnContextMenu) return;
@@ -828,9 +838,6 @@ Example:
     },
     _hideLoading: function(loadingData, loadingView) {
       return !loadingData && !loadingView;
-    },
-    _readOnlyAlbum: function(readOnly, editableByCaller) {
-      return readOnly || !editableByCaller;
     },
     _loadingViewChange: function(val) {
       this.$.header.style.visibility = val ? "hidden" : "visible";
