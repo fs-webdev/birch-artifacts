@@ -4,7 +4,7 @@
   "text-mobile": "Haz clic en el signo más de color verde para agregar recuerdos a este álbum o selecciona los recuerdos de otro álbum.",
   "text-collection": "Haz clic en el signo más de color verde para agregar recuerdos a esta colección o arrastra y suelta los recuerdos en la colección.",
   "text-mobile-collection": "Haz clic en el signo más de color verde para agregar recuerdos a esta colección o selecciona los recuerdos de otra colección.",
-  "unauth-text": "No hay recuerdos de este tipo.",
+  "unauth-text": "Este álbum está vacío.",
   "no-album": "Este álbum ya no existe.",
   "go-to-memories": "Ir a Mis recuerdos",
   "recently_deleted_header": "Eliminado recientemente",
