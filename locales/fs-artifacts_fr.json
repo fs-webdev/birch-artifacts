@@ -4,7 +4,7 @@
   "text-mobile": "Cliquez sur le signe « + » vert pour ajouter des souvenirs à cet album, ou sélectionnez ceux d’un autre album.",
   "text-collection": "Cliquez sur le signe « + » vert pour ajouter des souvenirs à cette collection, ou faites-les glisser pour les intégrer à la collection.",
   "text-mobile-collection": "Cliquez sur le signe « + » vert pour ajouter des souvenirs à cette collection, ou sélectionnez ceux d’une autre collection.",
-  "unauth-text": "Il n’y a aucun souvenir de ce type.",
+  "unauth-text": "Cet album est vide.",
   "no-album": "Cet album n’existe plus.",
   "go-to-memories": "Aller à « Mes souvenirs »",
   "recently_deleted_header": "Supprimés récemment",
