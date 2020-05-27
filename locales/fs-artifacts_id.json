@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "Pergi ke Memori Saya",
+  "missing_album": "Album ini sudah tidak ada.",
+  "no-album": "Album ini sudah tidak ada.",
+  "recently_deleted_explanation": "Memori di bawah ini akan dihapus secara permanen setelah 120 hari. Sementara dalam Baru Dihapus, itu tidak dapat dilihat oleh orang lain, diedit, atau dilampirkan ke Pohon Keluarga.",
+  "recently_deleted_header": "Baru Dihapus",
+  "text": "Klik pada tanda tambah berwarna hijau untuk menambahkan memori ke album ini, atau seret dan lepaskan memori ke dalam album.",
+  "text-collection": "Klik pada tanda tambah berwarna hijau untuk menambahkan memori ke koleksi ini, atau seret dan lepaskan memori ke dalam koleksi.",
+  "text-mobile": "Klik pada tanda tambah berwarna hijau untuk menambahkan memori ke album ini, atau pilih memori dari album yang berbeda.",
+  "text-mobile-collection": "Klik pada tanda tambah berwarna hijau untuk menambahkan memori ke koleksi ini, atau pilih memori dari koleksi yang berbeda.",
+  "title": "Mulai Mengoleksi Memori",
+  "unauth-text": "Album ini kosong."
+}
