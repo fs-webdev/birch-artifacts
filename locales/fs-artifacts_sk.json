@@ -1,13 +1,13 @@
 {
-  "go-to-memories": "Prejsť do Mojich spomienok",
-  "missing_album": "Tento album už neexistuje.",
-  "no-album": "Tento album už neexistuje.",
-  "recently_deleted_explanation": "Spomienky uvedené nižšie budú natrvalo odstránené po 120 dňoch. Ak sú v Nedávno odstránených, nemôžu si ich ostatní zobraziť, upravovať ani pripojiť k Rodostromu.",
-  "recently_deleted_header": "Nedávno vymazané",
-  "text": "Kliknutím na zelené znamienko plus pridáte do tohto albumu spomienky alebo doňho presuniete spomienky.",
-  "text-collection": "Kliknutím na zelené znamienko plus pridáte do tejto zbierky spomienky alebo do nej presuniete spomienky.",
-  "text-mobile": "Kliknutím na zelené znamienko plus pridáte do tohto albumu spomienky alebo vyberte spomienky z iného albumu.",
-  "text-mobile-collection": "Kliknutím na zelené znamienko plus pridáte spomienky do tejto zbierky alebo vyberte spomienky z inej zbierky.",
   "title": "Začať zbierať spomienky",
-  "unauth-text": "Neexistujú žiadne spomienky tohto typu."
+  "text": "Kliknutím na zelené znamienko plus pridáte do tohto albumu spomienky alebo doňho presuniete spomienky.",
+  "text-mobile": "Kliknutím na zelené znamienko plus pridáte do tohto albumu spomienky alebo vyberte spomienky z iného albumu.",
+  "text-collection": "Kliknutím na zelené znamienko plus pridáte do tejto zbierky spomienky alebo do nej presuniete spomienky.",
+  "text-mobile-collection": "Kliknutím na zelené znamienko plus pridáte spomienky do tejto zbierky alebo vyberte spomienky z inej zbierky.",
+  "unauth-text": "Tento album je prázdny.",
+  "no-album": "Tento album už neexistuje.",
+  "go-to-memories": "Prejsť do Mojich spomienok",
+  "recently_deleted_header": "Nedávno vymazané",
+  "recently_deleted_explanation": "Spomienky uvedené nižšie budú natrvalo odstránené po 120 dňoch. Ak sú v Nedávno odstránených, nemôžu si ich ostatní zobraziť, upravovať ani pripojiť k Rodostromu.",
+  "missing_album": "Tento album už neexistuje."
 }

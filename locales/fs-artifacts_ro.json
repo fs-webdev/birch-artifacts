@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "Mergi la Amintirile mele",
+  "missing_album": "Acest album nu mai există.",
+  "no-album": "Acest album nu mai există.",
+  "recently_deleted_explanation": "Amintirile de mai jos vor fi șterse definitiv după 120 de zile. Cât timp sunt în fișierul Șterse recent, nu pot fi văzute de alții, redactate sau anexate în Arborele genealogic.",
+  "recently_deleted_header": "Șterse recent",
+  "text": "Pentru a adăuga amintiri la acest album, apasă pe semnul indicând un plus verde sau glisează și fixează amintiri în album.",
+  "text-collection": "Pentru a adăuga amintiri la această colecție, apasă pe semnul indicând un plus verde sau glisează și fixează amintiri în colecție.",
+  "text-mobile": "Pentru a adăuga amintiri la acest album, apasă pe semnul indicând un plus verde sau selectează amintiri din alt album.",
+  "text-mobile-collection": "Pentru a adăuga amintiri la această colecție, apasă pe semnul indicând un plus verde sau selectează amintiri din altă colecție.",
+  "title": "Începe să colecționezi amintiri",
+  "unauth-text": "Acest album este gol."
+}

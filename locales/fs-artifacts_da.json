@@ -1,13 +1,13 @@
 {
-  "go-to-memories": "Gå til Mine minder",
-  "missing_album": "Dette album eksisterer ikke længere.",
-  "no-album": "Dette album eksisterer ikke længere.",
-  "recently_deleted_explanation": "Minderne nedenfor vil blive slettet permanent efter 120 dage. Når de er i Slettet for nylig, kan andre ikke se dem, redigere dem, eller vedhæfte dem til Family Tree.",
-  "recently_deleted_header": "Slettet for nylig",
-  "text": "Klik på det grønne plus for at tilføje minder til dette album, eller træk og slip minder ind i albummet.",
-  "text-collection": "Klik på det grønne plus for at tilføje minder til denne samling, eller træk og slip minder ind i samlingen.",
-  "text-mobile": "Klik på det grønne plus for at tilføje minder til dette album, eller vælg minder fra et andet album.",
-  "text-mobile-collection": "Klik på det grønne plus for at tilføje minder til denne samling, eller vælg minder fra en anden samling.",
   "title": "Begynd med at samle minder",
-  "unauth-text": "Der er ingen minder af denne type."
+  "text": "Klik på det grønne plus for at tilføje minder til dette album, eller træk og slip minder ind i albummet.",
+  "text-mobile": "Klik på det grønne plus for at tilføje minder til dette album, eller vælg minder fra et andet album.",
+  "text-collection": "Klik på det grønne plus for at tilføje minder til denne samling, eller træk og slip minder ind i samlingen.",
+  "text-mobile-collection": "Klik på det grønne plus for at tilføje minder til denne samling, eller vælg minder fra en anden samling.",
+  "unauth-text": "Dette album er tomt.",
+  "no-album": "Dette album eksisterer ikke længere.",
+  "go-to-memories": "Gå til Mine minder",
+  "recently_deleted_header": "Slettet for nylig",
+  "recently_deleted_explanation": "Minderne nedenfor vil blive slettet permanent efter 120 dage. Når de er i Slettet for nylig, kan andre ikke se dem, redigere dem, eller vedhæfte dem til Family Tree.",
+  "missing_album": "Dette album eksisterer ikke længere."
 }

@@ -1,13 +1,13 @@
 {
-  "go-to-memories": "Přejít do složky Mé vzpomínky",
-  "missing_album": "Toto album již neexistuje.",
-  "no-album": "Toto album již neexistuje.",
-  "recently_deleted_explanation": "Níže uvedené vzpomínky budou po 120 dnech natrvalo smazány. Vzpomínky ve složce Nedávno smazané si druzí nemohou prohlížet, upravovat ani připojovat k osobám v Rodokmenu.",
-  "recently_deleted_header": "Nedávno smazáno",
-  "text": "Chcete-li do tohoto alba přidat vzpomínky, klikněte na zelené znaménko plus nebo vzpomínky do alba vložte tak, že je do něj přetáhnete.",
-  "text-collection": "Chcete-li do této sbírky přidat vzpomínky, klikněte na zelené znaménko plus nebo vzpomínky do sbírky vložte tak, že je do ní přetáhnete.",
-  "text-mobile": "Chcete-li do tohoto alba přidat vzpomínky, klikněte na zelené znaménko plus nebo vyberte vzpomínky z jiného alba.",
-  "text-mobile-collection": "Chcete-li do této sbírky přidat vzpomínky, klikněte na zelené znaménko plus nebo vyberte vzpomínky z jiné sbírky.",
   "title": "Začněte shromažďovat vzpomínky",
-  "unauth-text": "Žádné vzpomínky tohoto typu neexistují."
+  "text": "Chcete-li do tohoto alba přidat vzpomínky, klikněte na zelené znaménko plus nebo vzpomínky do alba vložte tak, že je do něj přetáhnete.",
+  "text-mobile": "Chcete-li do tohoto alba přidat vzpomínky, klikněte na zelené znaménko plus nebo vyberte vzpomínky z jiného alba.",
+  "text-collection": "Chcete-li do této sbírky přidat vzpomínky, klikněte na zelené znaménko plus nebo vzpomínky do sbírky vložte tak, že je do ní přetáhnete.",
+  "text-mobile-collection": "Chcete-li do této sbírky přidat vzpomínky, klikněte na zelené znaménko plus nebo vyberte vzpomínky z jiné sbírky.",
+  "unauth-text": "Toto album je prázdné.",
+  "no-album": "Toto album již neexistuje.",
+  "go-to-memories": "Přejít do složky Mé vzpomínky",
+  "recently_deleted_header": "Nedávno smazáno",
+  "recently_deleted_explanation": "Níže uvedené vzpomínky budou po 120 dnech natrvalo smazány. Vzpomínky ve složce Nedávno smazané si druzí nemohou prohlížet, upravovat ani připojovat k osobám v Rodokmenu.",
+  "missing_album": "Toto album již neexistuje."
 }

@@ -1,13 +1,13 @@
 {
-  "go-to-memories": "Siirry kohteeseen Omat muistoni",
-  "missing_album": "Tätä albumia ei enää ole.",
-  "no-album": "Tätä albumia ei enää ole.",
-  "recently_deleted_explanation": "Nämä muistot poistetaan pysyvästi neljän kuukauden kuluttua. Muut eivät voi katsella, muokata tai liittää Family Treehen muistoja, jotka ovat kohteessa Äskettäin poistetut.",
-  "recently_deleted_header": "Äskettäin poistetut",
-  "text": "Lisää muistoja tähän albumiin napsauttamalla vihreää plusmerkkiä tai vetämällä ja pudottamalla muistot albumiin.",
-  "text-collection": "Lisää muistoja tähän kokoelmaan napsauttamalla vihreää plusmerkkiä tai vetämällä ja pudottamalla muistot kokoelmaan.",
-  "text-mobile": "Lisää muistoja tähän albumiin napsauttamalla vihreää plusmerkkiä tai valitsemalla muistoja eri albumista.",
-  "text-mobile-collection": "Lisää muistoja tähän kokoelmaan napsauttamalla vihreää plusmerkkiä tai valitsemalla muistoja eri kokoelmasta.",
   "title": "Aloita muistojen kerääminen",
-  "unauth-text": "Tämän tyyppisiä muistoja ei ole."
+  "text": "Lisää muistoja tähän albumiin napsauttamalla vihreää plusmerkkiä tai vetämällä ja pudottamalla muistot albumiin.",
+  "text-mobile": "Lisää muistoja tähän albumiin napsauttamalla vihreää plusmerkkiä tai valitsemalla muistoja eri albumista.",
+  "text-collection": "Lisää muistoja tähän kokoelmaan napsauttamalla vihreää plusmerkkiä tai vetämällä ja pudottamalla muistot kokoelmaan.",
+  "text-mobile-collection": "Lisää muistoja tähän kokoelmaan napsauttamalla vihreää plusmerkkiä tai valitsemalla muistoja eri kokoelmasta.",
+  "unauth-text": "Tämä albumi on tyhjä.",
+  "no-album": "Tätä albumia ei enää ole.",
+  "go-to-memories": "Siirry kohteeseen Omat muistoni",
+  "recently_deleted_header": "Äskettäin poistetut",
+  "recently_deleted_explanation": "Nämä muistot poistetaan pysyvästi neljän kuukauden kuluttua. Muut eivät voi katsella, muokata tai liittää Family Treehen muistoja, jotka ovat kohteessa Äskettäin poistetut.",
+  "missing_album": "Tätä albumia ei enää ole."
 }

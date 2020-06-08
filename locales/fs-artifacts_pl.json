@@ -1,13 +1,13 @@
 {
-  "go-to-memories": "Przejdź do części Moje wspomnienia",
-  "missing_album": "Ten album już nie istnieje.",
-  "no-album": "Ten album już nie istnieje.",
-  "recently_deleted_explanation": "Poniższe wspomnienia zostaną trwale usunięte po upływie 120 dni. Gdy znajdują się w części Ostatnio usunięte, inne osoby nie mogą ich przeglądać, edytować czy dołączać do Drzewa genealogicznego.",
-  "recently_deleted_header": "Ostatnio usunięte",
-  "text": "Kliknij zielony plus, aby dodać wspomnienia do tego albumu lub przeciągnij i upuść wspomnienia do tego albumu.",
-  "text-collection": "Kliknij zielony plus, aby dodać wspomnienia do tego zbioru lub przeciągnij i upuść wspomnienia do tego zbioru.",
-  "text-mobile": "Kliknij zielony plus, aby dodać wspomnienia do tego albumu lub wybierz wspomnienia z innego albumu.",
-  "text-mobile-collection": "Kliknij zielony plus, aby dodać wspomnienia do tego zbioru lub wybierz wspomnienia z innego zbioru.",
   "title": "Zacznij gromadzić wspomnienia",
-  "unauth-text": "Nie ma tego rodzaju wspomnień."
+  "text": "Kliknij zielony plus, aby dodać wspomnienia do tego albumu lub przeciągnij i upuść wspomnienia do tego albumu.",
+  "text-mobile": "Kliknij zielony plus, aby dodać wspomnienia do tego albumu lub wybierz wspomnienia z innego albumu.",
+  "text-collection": "Kliknij zielony plus, aby dodać wspomnienia do tego zbioru lub przeciągnij i upuść wspomnienia do tego zbioru.",
+  "text-mobile-collection": "Kliknij zielony plus, aby dodać wspomnienia do tego zbioru lub wybierz wspomnienia z innego zbioru.",
+  "unauth-text": "Ten album jest pusty.",
+  "no-album": "Ten album już nie istnieje.",
+  "go-to-memories": "Przejdź do części Moje wspomnienia",
+  "recently_deleted_header": "Ostatnio usunięte",
+  "recently_deleted_explanation": "Poniższe wspomnienia zostaną trwale usunięte po upływie 120 dni. Gdy znajdują się w części Ostatnio usunięte, inne osoby nie mogą ich przeglądać, edytować czy dołączać do Drzewa genealogicznego.",
+  "missing_album": "Ten album już nie istnieje."
 }
