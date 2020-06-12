@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "Vào Những Kỷ Niệm của Tôi",
+  "missing_album": "Không còn album này nữa.",
+  "no-album": "Không còn album này nữa.",
+  "recently_deleted_explanation": "Những kỷ niệm dưới đây sẽ được xóa vĩnh viễn sau 120 ngày. Mặc dù nằm trong Đã Xóa Gần Đây nhưng những kỷ niệm này không thể được người khác xem, chỉnh sửa, hoặc đính kèm vào Cây Gia Phả.",
+  "recently_deleted_header": "Đã Xóa Gần Đây",
+  "text": "Bấm vào dấu cộng màu xanh lá cây để thêm kỷ niệm vào album này, hoặc kéo và thả kỷ niệm vào album này.",
+  "text-collection": "Bấm vào dấu cộng màu xanh lá cây để thêm kỷ niệm vào bộ sưu tập này, hoặc kéo và thả kỷ niệm vào bộ sưu tập này.",
+  "text-mobile": "Bấm vào dấu cộng màu xanh lá cây để thêm kỷ niệm vào album này, hoặc bấm chọn kỷ niệm từ một album khác.",
+  "text-mobile-collection": "Bấm vào dấu cộng màu xanh lá cây để thêm kỷ niệm vào bộ sưu tập này, hoặc bấm chọn kỷ niệm từ một bộ sưu tập khác.",
+  "title": "Bắt Đầu Thu Thập Kỷ Niệm",
+  "unauth-text": "Album này trống không."
+}
