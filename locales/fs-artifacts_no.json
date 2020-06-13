@@ -1,0 +1,13 @@
+{
+  "go-to-memories": "Gå til Mine minner",
+  "missing_album": "Dette albumet finnes ikke lenger.",
+  "no-album": "Dette albumet finnes ikke lenger.",
+  "recently_deleted_explanation": "Minnene nedenfor vil bli slettet permanent etter 120 dager. Mens de ligger i Nylig slettet, kan de ikke vises av andre, redigeres eller knyttes til Slektstre.",
+  "recently_deleted_header": "Nylig slettet",
+  "text": "Klikk på det grønne plusstegnet for å legge til minner i dette albumet, eller dra og slipp minner i albumet.",
+  "text-collection": "Klikk på det grønne plusstegnet for å legge til minner i denne samlingen, eller dra og slipp minner i samlingen.",
+  "text-mobile": "Klikk på det grønne plusstegnet for å legge til minner i dette albumet, eller velg minner fra et annet album.",
+  "text-mobile-collection": "Klikk på det grønne plusstegnet for å legge til minner i denne samlingen, eller velg minner fra en annen samling.",
+  "title": "Begynn å samle minner",
+  "unauth-text": "Dette albumet er tomt."
+}
